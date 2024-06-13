@@ -2,7 +2,7 @@ import React from "react";
 import "./Nav.css";
 function Nav() {
   return (
-    <div class="w-full flex p-2" >
+    <div class="w-full flex justify-center p-2" >
 	  <div class="p-2 m-2">
 	  <svg fill="#000000" width="50px" height="50px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" id="chair_x5F_umbrella" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
