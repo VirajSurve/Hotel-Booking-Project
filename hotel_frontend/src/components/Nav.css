@@ -1,0 +1,16 @@
+.container
+{
+    display: flex;
+    flex-direction: row;
+    border: solid 2px blue;
+    height: 100%;
+    align-items: center;
+}
+.button{
+    flex-direction: row;
+
+}
+.para
+{
+    align-items: center;
+}
