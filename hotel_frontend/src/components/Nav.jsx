@@ -2,7 +2,7 @@ import React from "react";
 function Nav(){
     return (
         <div>
-           just trail
+           just trail (okay from viraj)
         </div>
     )
 }
