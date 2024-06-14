@@ -1,16 +1,16 @@
-.container
-{
+/* YourCSSFile.css */
+
+.w-full {
     display: flex;
     flex-direction: row;
-    border: solid 2px blue;
-    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.p-2 {
+    margin-left: 13px;
+    margin-right: 13px;
+}
+.para {
     align-items: center;
 }
-.button{
-    flex-direction: row;
 
-}
-.para
-{
-    align-items: center;
-}
