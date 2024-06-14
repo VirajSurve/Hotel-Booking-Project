@@ -10,7 +10,7 @@ function Header(){
 </svg>
         <span className='font-bold text-xl'>OYO</span>
         </a>
-        <div className='hidden md:  flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300 '>
+        <div className='hidden md:block flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300 '>
           <div>AnyTime</div>
           <div className='border-l border-gray-300'></div>
           <div>AnyWhere</div>
