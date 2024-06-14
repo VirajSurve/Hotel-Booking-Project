@@ -1,5 +1,8 @@
 /* YourCSSFile.css */
-
+.snap-x{
+    align-items: flex-start;
+    
+}
 .w-full {
     display: flex;
     flex-direction: row;

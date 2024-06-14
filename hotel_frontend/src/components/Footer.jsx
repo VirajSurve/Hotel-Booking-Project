@@ -3,7 +3,7 @@ import './Footer.css';
 function Footer(){
     const now=new Date();
     return(
-        <footer className='flex bg-red-400 justify-center absolute inset-x-0 bottom-0 pb-5'>
+        <footer className=' absolute flex bg-red-400 justify-center inset-x-0  pb-5'>
         <div class="mt-12 border-t border-gray-100 pt-12">
       <div class="sm:flex sm:items-center sm:justify-between">
         <ul class="flex flex-wrap gap-4 text-xs">
