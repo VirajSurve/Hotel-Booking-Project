@@ -3,20 +3,21 @@ import React, { useState } from "react";
 function Button() {
   const [color, setColor] = useState("white");
   const toggleColor = () => {
-    setColor((prevColor) => (prevColor === "red" ? "white" : "red"));
+    setColor((prevColor) => (prevColor === "white" ? "red" : "white"));
   };
+
   return (
     <div className="heart">
       <button
         id="btnh"
-        class="btn"
+        className="btn"
         style={{ color: color }}
-        onclick={toggleColor}
+        onClick={toggleColor}
       >
-        <i class="bi bi-heart-fill"></i>
+        <i className="bi bi-heart-fill"></i>
       </button>
     </div>
   );
 }
 
-export default Button;
+export default Button;
