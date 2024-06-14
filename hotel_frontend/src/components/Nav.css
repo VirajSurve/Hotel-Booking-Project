@@ -1,19 +1,23 @@
+
 /* YourCSSFile.css */
-.snap-x{
-    align-items: flex-start;
-    
-}
-.w-full {
+
+
+.wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+
+    max-height:100%;
+    border:1px solid black;
+    overflow-x:auto;
 }
+
 .p-2 {
-    margin-left: 13px;
-    margin-right: 13px;
+
+    min-width:100px;
+    line-height:20px;
+    background-color: #ddd;
 }
 .para {
     align-items: center;
 }
+
 
