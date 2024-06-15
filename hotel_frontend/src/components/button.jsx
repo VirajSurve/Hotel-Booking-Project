@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function Button() {
   const [color, setColor] = useState("white");
   const toggleColor = () => {
@@ -7,7 +8,7 @@ function Button() {
   };
 
   return (
-    <div className="heart">
+    
       <button
         id="btnh"
         className="btn"
@@ -16,8 +17,7 @@ function Button() {
       >
         <i className="bi bi-heart-fill"></i>
       </button>
-    </div>
   );
 }
 
-export default Button;
+export default Button;

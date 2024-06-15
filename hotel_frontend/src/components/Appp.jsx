@@ -2,7 +2,7 @@ import React from "react";
 import Container from "./container";
 import Places from "../places";
 
-function App1() {
+function App() {
   return (
     <div className="each-card">
       {Places.map((placess, index) => (
@@ -18,4 +18,5 @@ function App1() {
   );
 }
 
-export default App1;
+
+export default App;
