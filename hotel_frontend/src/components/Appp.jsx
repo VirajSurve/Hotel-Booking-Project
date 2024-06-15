@@ -5,18 +5,18 @@ import Places from "../places";
 function App() {
   return (
     <div className="each-card">
-      {Places.map((placess, index) => (
+      {Places.map((place, index) => (
         <Container
           key={index}
-          img={placess.imgURL}
-          place={placess.place}
-          side={placess.side}
-          price={placess.price}
+          img={place.imgURL}
+          place={place.place}
+          rate={place.rate}
+          side={place.side}
+          price={place.price}
         />
       ))}
     </div>
   );
 }
-
 
 export default App;

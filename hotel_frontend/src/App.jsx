@@ -4,6 +4,7 @@ import Nav from "./components/Nav.jsx";
 import Appp from "./components/Appp.jsx"
 
 
+
 function App() {
 
   return (
@@ -11,8 +12,9 @@ function App() {
       <Header />
       <Nav/>
       <Appp/>
+
       <Footer />
     </>
   );
 }
-export default App
+export default App;

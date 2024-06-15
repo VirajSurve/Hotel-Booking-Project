@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 function Button() {
   const [color, setColor] = useState("white");
   const toggleColor = () => {
@@ -8,15 +7,14 @@ function Button() {
   };
 
   return (
-    
-      <button
-        id="btnh"
-        className="btn"
-        style={{ color: color }}
-        onClick={toggleColor}
-      >
-        <i className="bi bi-heart-fill"></i>
-      </button>
+    <button
+      id="btnh"
+      className="btn"
+      style={{ color: color }}
+      onClick={toggleColor}
+    >
+      <i className={color === "white" ? "bi bi-heart" : "bi bi-heart-fill"}></i>
+    </button>
   );
 }
 

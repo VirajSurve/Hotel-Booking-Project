@@ -2,109 +2,109 @@ import Recat from "react";
 const Places = [
   {
     imgURL:
-      "https://t4.ftcdn.net/jpg/03/70/64/43/360_F_370644357_MDF4UXLAXTyyi2OyuK66tWW9cA2f8svL.jpg",
+      "./villa_images/villa1.jpg",
 
     place: "Europe, Sweden",
-
+    rate : " 4.9",
     side: "Countryside",
     price: "$1000",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiYR3v8cZM852ZljGTC71c1HoSsPb7EiO2g&s",
+      "./villa_images/villa2.jpg",
 
     place: "Europe, Latvia",
-
+    rate : " 4.9",
     side: "Modern",
     price: "$500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDHm7IwEe-C7w2zrew7eeblUHDk1OaOZvMQw&s",
+      "./villa_images/villa3.jpg",
 
     place: "Europe, France",
-
+    rate : " 4.9",
     side: "Casties",
     price: "$1150",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5oRqPL7lWCsG-1b67jzdiA05Q2S-BtkmgKA&s",
+      "./villa_images/villa4.jpg",
 
     place: "Europe, Switzerland",
-
+    rate : " 4.9",
     side: "Lake",
     price: "$2250",
   },
   {
     imgURL:
-      "https://assets-news.housing.com/news/wp-content/uploads/2022/02/27121904/featured-compressed-67.jpg",
+      "./villa_images/villa5.jpg",
 
     place: "Europe, Iceland",
-
+    rate : " 4.9",
     side: "Modern",
     price: "$750",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrDZsCXy97rdmPRKsXAsIEgIupVWqV8S3zYw&s",
+      "./villa_images/villa6.jpg",
 
     place: "Europe, Croatia",
-
+    rate : " 4.9",
     side: "village",
     price: "$1575",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn8ej6MK2E0t2QJsrOZK2LTORjVrfKT0mu7w&s",
+      "./villa_images/villa7.jpg",
 
     place: "Europe, Norway",
-
+    rate : " 4.9",
     side: "Beach",
     price: "$500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNt3MzvzyzS_eAea-sS0lnT8-XP47GkukfKw&s",
+      "./villa_images/villa8.jpg",
 
     place: "Europe, Belarus",
-
+    rate : " 4.9",
     side: "Lake",
     price: "$2500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXoKvGzWoJn51sn7TvFvPZ4gXlwRL3uC8rxg&s",
+      "./villa_images/villa9.jpg",
 
     place: "Europe, Turkey",
-
+    rate : " 4.9",
     side: "Modern",
     price: "$2500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7ADuGZjUzj5n0maWXgFl2Qs2xefsXJlAQ&s",
+      "./villa_images/villa10.jpg",
 
     place: "Europe, Denmark",
-
+    rate : " 4.9",
     side: "Countryside",
     price: "$2500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOwQ5l2irOqRyj8C2pQqv49qmdmT-CBVYafg&s",
+      "./villa_images/villa11.jpg",
 
     place: "Europe, Monaco",
-
+    rate : " 4.9",
     side: "Lake",
     price: "$2500",
   },
   {
     imgURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu4XCPj5N7GXcd1xkqAsKQcj9A0kwRkWBDTg&s",
+      "./villa_images/villa12.jpg",
 
     place: "Europe, Spain",
-
+    rate : "  4.9",
     side: "Modern",
     price: "$2500",
   },
