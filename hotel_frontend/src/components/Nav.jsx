@@ -34,7 +34,7 @@ function Nav() {
 </g>
 
 </svg>
-        <p className="para">Beach</p>
+        <p className="para">beach</p>
       </div>
 	  <div class="p-2">
 	  <svg width="50px" height="50px" viewBox="0 0 15 15" version="1.1" id="windmill" xmlns="http://www.w3.org/2000/svg">
