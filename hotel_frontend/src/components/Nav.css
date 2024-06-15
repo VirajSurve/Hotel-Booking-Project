@@ -13,5 +13,6 @@
 }
 .para {
     align-items: center;
-    margin-top:1px;
+    margin-top:3px;
+    font-size: 12px;
 }
