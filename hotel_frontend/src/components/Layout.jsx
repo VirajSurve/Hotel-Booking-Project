@@ -6,7 +6,7 @@ import "../index.css";
 export default function Layout(){
     return(
         <>
-        <div className="p-4">
+        <div className="relative p-4 min-h-screen">
         <Header />
         <Outlet />
         <Footer />
