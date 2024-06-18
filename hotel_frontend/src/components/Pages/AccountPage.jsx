@@ -1,9 +1,30 @@
-import { useContext} from "react";
-import { Link,useParams } from "react-router-dom";
+import { useContext, useState} from "react";
+import { Link,Navigate,useParams } from "react-router-dom";
+import { UserContext } from "../../UserContext";
+import axios from "axios";
 
 function AccountPage(){
-    // const {user}=useContext(UserContext);
+    const {ready,user,setUser}=useContext(UserContext);
+    const [redirect,setRedirect]=useState(null);
     //missing code for UserContext.jsx will be added after login page till then stay tuned
+
+    // if(!ready){
+    //     return 'Loading...';
+    // }
+
+    async function logout(){
+        axios.post("http://localhost:4000/logout");
+        setUser(null);
+        setRedirect("/");
+    }
+
+    if(!user && !redirect){
+        return <Navigate to={"/login"} />
+    }
+
+    if(redirect){
+        return <Navigate to={redirect} />
+    }
 
     let {subpage}=useParams();
 
@@ -30,8 +51,8 @@ function AccountPage(){
 
         {subpage==='profile' && (
             <div className="text-center max-w-lg mx-auto">
-                Login as user <br />
-                <button className="bg-primary max-w-sm mt-2 rounded-full px-20 py-1">
+                Logged as {user.name} ({user.email})<br />
+                <button onClick={logout} className="bg-primary max-w-sm mt-2 rounded-full px-20 py-1">
                     Logout
                 </button>
             </div>
