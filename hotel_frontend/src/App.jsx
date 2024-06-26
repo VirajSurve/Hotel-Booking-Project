@@ -1,35 +1,31 @@
-import Header from "./components/Navbar/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Nav from "./components/Nav.jsx";
-import Appp from "./components/Appp.jsx"
-import { Route,Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout.jsx";
 import LoginPage from "./components/Pages/LoginPage.jsx";
 import IndexPage from "./components/Pages/IndexPage.jsx";
-import Layout from "./components/Layout.jsx";
-import AccountPage from "./components/Pages/AccountPage.jsx";
-import axios from "axios";
+import AccountPage from "./components/Pages/ProfilePage.jsx";
+import PlacesPage from "./components/Pages/PlacesPage.jsx";
 import { UserContextProvider } from "./UserContext.jsx";
-import { useEffect } from "react";
-axios.defaults.withCredentials=true;
+import axios from "axios";
+import ProfilePage from "./components/Pages/ProfilePage.jsx";
+import PlacesFormPage from "./components/Pages/PlacesFormPage.jsx";
+axios.defaults.withCredentials = true;
 
 function App() {
-  
-  
-  
   return (
-    <>
     <UserContextProvider>
-    <Routes>
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<LoginPage />} />
-          <Route path="/account/:subpage?" element={<AccountPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<LoginPage />} />
+          <Route path="account/:subpage?" element={<ProfilePage />} />
+          <Route path="account/places" element={<PlacesPage />} />
+          <Route path="account/places/new" element={<PlacesFormPage />} />
+          <Route path="account/places/:id" element={<PlacesFormPage />} />
+          {/* <Route path="account/:subpage?/:id" element={<AccountPage />} /> */}
         </Route>
       </Routes>
     </UserContextProvider>
-      
-    </>
   );
 }
 

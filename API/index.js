@@ -5,10 +5,23 @@ import User from "./Models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import imageDownloader from "image-downloader";
+import path from "path";
+import { fileURLToPath } from 'url';
+import multer from "multer";
+import fs from "fs";
+import Place from "./Models/place.js"
+
+
+// Function to get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use('/upload',express.static(__dirname+'/upload'))
 const secret = bcrypt.genSaltSync(10);
 const jwtSecret = "efesfewfewfesfeserfrrfe";
 
@@ -79,9 +92,157 @@ app.get("/profile", (req, res) => {
     }
 });
 
-app.post("/logout",(req,res)=>{
-    res.cookie("token","").json(true);
+app.post("/logout", (req, res) => {
+    res.cookie("token", "").json(true);
 });
+
+app.post("/upload-by-link", async (req, res) => {
+    const { link } = req.body;
+    const newName = 'photo'+Date.now() + '.jpg';
+    try {
+        await imageDownloader.image({
+            url: link,
+            dest: path.join(__dirname, "upload", newName),
+        });
+        res.json(path.join(newName));
+    } catch (error) {
+        console.error("Image download error:", error);
+        res.status(500).json("Image download failed");
+    }
+});
+
+const photosMiddleware=multer({dest:'upload/'});
+app.post('/upload',photosMiddleware.array('photos',100),(req,res)=>{
+    console.log("******FILE*********",req.files);
+    const uploadedFiles=[];
+    for(let i=0;i<req.files.length;i++){
+        const {path,originalname}=req.files[i];
+        const parts=originalname.split('.');
+        const ext=parts[parts.length-1];
+        const newPath=path+'.'+ext;
+        fs.renameSync(path,newPath);
+        uploadedFiles.push(newPath.replace('upload\\',''));
+    }
+    console.log(uploadedFiles);
+    res.json(uploadedFiles);
+});
+
+app.post("/places", (req, res) => {
+    const { token } = req.cookies;
+    const {
+        title,
+        address,
+        addedPhotoes,
+        photoLink,
+        description,
+        perks,
+        extraInfo,
+        checkIn,
+        checkOut,
+        maxGuest,
+        price
+    } = req.body;
+
+    // Ensure checkIn and checkOut are numbers
+    const checkInNumber = Number(checkIn);
+    const checkOutNumber = Number(checkOut);
+    const maxGuestNumber=Number(maxGuest);
+    const priceNumber=Number(price);
+
+    if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber)) {
+        return res.status(400).json({ error: "checkIn, checkOut and maxGuest must be numbers" });
+    }
+
+    jwt.verify(token, jwtSecret, {}, async (err, user) => {
+        if (err) {
+            console.error("JWT Verify Error:", err);
+            return res.status(403).json("Invalid token");
+        } else {
+            try {
+                const placeDoc = await Place.create({
+                    owner: user.id,
+                    title,
+                    address,
+                    photos:addedPhotoes,
+                    photoLink,
+                    description,
+                    perks,
+                    extraInfo,
+                    checkIn: checkInNumber,
+                    checkOut: checkOutNumber,
+                    maxGuest: maxGuestNumber,
+                    price:priceNumber,
+                });
+                res.json(placeDoc);
+            } catch (error) {
+                console.error("Error creating Place document:", error);
+                res.status(500).json("Error creating Place document");
+            }
+        }
+    });
+});
+
+app.get('/user-places',(req,res)=>{
+    const {token}=req.cookies;
+    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
+        const {id}=userData;
+        res.json(await Place.find({owner:id}));
+    });
+});
+
+app.get('/places/:id',async(req,res)=>{
+    const {id}=req.params;
+    res.json(await Place.findById(id));
+    
+});
+
+app.put('/places',async(req,res)=>{
+    const {token}=req.cookies;
+    const{
+        id,
+        title,
+        address,
+        addedPhotoes,
+        photoLink,
+        description,
+        perks,
+        extraInfo,
+        checkIn,
+        checkOut,
+        maxGuest,
+        price
+    }=req.body;
+    // Ensure checkIn and checkOut are numbers
+    const checkInNumber = Number(checkIn);
+    const checkOutNumber = Number(checkOut);
+    const maxGuestNumber=Number(maxGuest);
+    const priceNumber=Number(price);
+    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
+        if(err) throw err;
+        const placeDoc=await Place.findById(id);
+        if(userData.id===placeDoc.owner.toString()){
+            placeDoc.set({
+                title,
+                address,
+                photos:addedPhotoes,
+                photoLink,
+                description,
+                perks,
+                extraInfo,
+                checkIn:checkInNumber,
+                checkOut:checkOutNumber,
+                maxGuest:maxGuestNumber,
+                price:priceNumber,
+            });
+            await placeDoc.save();
+            res.json('ok');
+        }
+    });
+});
+
+app.get('/places', async (req,res)=>{
+    res.json(await Place.find());
+})
 
 app.listen(4000, () => {
     console.log("Server started on port 4000");
