@@ -49,7 +49,7 @@ export default function PlacesFormPage(){
             checkIn,
             checkOut,
             maxGuest,
-            price
+            price,
         };
         if(id){
             //update
@@ -59,10 +59,10 @@ export default function PlacesFormPage(){
         }else{
           //new place
           await axios.post("http://localhost:4000/places", {
-            placeData
-          });
-          setRedirect(true);
+            ...placeData
+          }); 
         }
+        setRedirect(true);
       }
 
       function preInput(header, description) {

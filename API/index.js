@@ -140,7 +140,7 @@ app.post("/places", (req, res) => {
         checkIn,
         checkOut,
         maxGuest,
-        price
+        price,
     } = req.body;
 
     // Ensure checkIn and checkOut are numbers
@@ -149,7 +149,7 @@ app.post("/places", (req, res) => {
     const maxGuestNumber=Number(maxGuest);
     const priceNumber=Number(price);
 
-    if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber)) {
+    if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber) || isNaN(priceNumber)){
         return res.status(400).json({ error: "checkIn, checkOut and maxGuest must be numbers" });
     }
 
