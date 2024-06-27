@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const UserContext = createContext({});
 
@@ -19,11 +19,16 @@ export function UserContextProvider({ children }) {
         }
     }, [user]);
 
+        //for second page icons
+        const [icon1 , setIcon1] = useState([]);
+        const [icon2 , setIcon2] = useState([]);
+
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, icon1 , setIcon1 , icon2 , setIcon2}}>
             {children}
         </UserContext.Provider>
-    )
+    );
 }
+
 
 

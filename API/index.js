@@ -139,14 +139,16 @@ app.post("/places", (req, res) => {
         extraInfo,
         checkIn,
         checkOut,
-        maxGuest,
+        maxGuests,
         price,
+        rate,
+        reviews,
     } = req.body;
 
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
     const checkOutNumber = Number(checkOut);
-    const maxGuestNumber=Number(maxGuest);
+    const maxGuestNumber=Number(maxGuests);
     const priceNumber=Number(price);
 
     if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber) || isNaN(priceNumber)){
@@ -170,8 +172,10 @@ app.post("/places", (req, res) => {
                     extraInfo,
                     checkIn: checkInNumber,
                     checkOut: checkOutNumber,
-                    maxGuest: maxGuestNumber,
+                    maxGuests: maxGuestNumber,
                     price:priceNumber,
+                    rate,
+                    reviews,
                 });
                 res.json(placeDoc);
             } catch (error) {
@@ -209,13 +213,15 @@ app.put('/places',async(req,res)=>{
         extraInfo,
         checkIn,
         checkOut,
-        maxGuest,
-        price
+        maxGuests,
+        price,
+        rate,
+        reviews,
     }=req.body;
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
     const checkOutNumber = Number(checkOut);
-    const maxGuestNumber=Number(maxGuest);
+    const maxGuestNumber=Number(maxGuests);
     const priceNumber=Number(price);
     jwt.verify(token,jwtSecret,{},async(err,userData)=>{
         if(err) throw err;
@@ -231,8 +237,10 @@ app.put('/places',async(req,res)=>{
                 extraInfo,
                 checkIn:checkInNumber,
                 checkOut:checkOutNumber,
-                maxGuest:maxGuestNumber,
+                maxGuests:maxGuestNumber,
                 price:priceNumber,
+                rate,
+                reviews,
             });
             await placeDoc.save();
             res.json('ok');

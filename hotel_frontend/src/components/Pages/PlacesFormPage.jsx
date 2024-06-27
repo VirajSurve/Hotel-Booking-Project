@@ -16,9 +16,11 @@ export default function PlacesFormPage(){
     const [extraInfo, setExtraInfo] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
-    const [maxGuest, setMaxGuest] = useState(null);
+    const [maxGuests, setMaxGuest] = useState(null);
     const [redirect,setRedirect]=useState(false);
     const [price,setPrice]=useState(100);
+    const [rate,setRate]=useState(1);
+    const [reviews,setReviews]=useState(1);
 
     useEffect(() => {
         if (id) {
@@ -31,8 +33,10 @@ export default function PlacesFormPage(){
             setExtraInfo(data.extraInfo);
             setCheckIn(data.checkIn);
             setCheckOut(data.checkOut);
-            setMaxGuest(data.maxGuest);
+            setMaxGuest(data.maxGuests);
             setPrice(data.price);
+            setRate(data.rate);
+            setReviews(data.reviews);
           });
         }
       }, [id]);
@@ -48,8 +52,10 @@ export default function PlacesFormPage(){
             extraInfo,
             checkIn,
             checkOut,
-            maxGuest,
+            maxGuests,
             price,
+            rate,
+            reviews,
         };
         if(id){
             //update
@@ -127,11 +133,19 @@ export default function PlacesFormPage(){
               </div>
               <div>
                 <h3 className="mt-2 -mb-1">Max Guests</h3>
-                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={maxGuest} onChange={e => { setMaxGuest(e.target.value) }} />
+                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={maxGuests} onChange={e => { setMaxGuest(e.target.value) }} />
               </div>
               <div>
                 <h3 className="mt-2 -mb-1">Price per Night</h3>
                 <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={price} onChange={e => { setPrice(e.target.value) }} />
+              </div>
+              <div>
+                <h3 className="mt-2 -mb-1">Rating</h3>
+                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={rate} onChange={e => { setRate(e.target.value) }} />
+              </div>
+              <div>
+                <h3 className="mt-2 -mb-1">Reviews</h3>
+                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={reviews} onChange={e => { setReviews(e.target.value) }} />
               </div>
             </div>
             <button className="bg-primary mt-5 rounded-full py-1 px-2  w-full border my-1">Save</button>
