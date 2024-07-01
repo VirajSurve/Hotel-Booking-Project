@@ -23,7 +23,7 @@ export default function PlacesPage() {
     if (!place) return "";
 
     console.log("showAllPhotos:", showAllPhotos);
-
+    console.log(place.name);
     // if (showAllPhotos) {
     //     return (
     //         <div className='fixed bg-black min-w-full min-h-screen flex items-center justify-center'>

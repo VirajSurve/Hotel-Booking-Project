@@ -18,8 +18,8 @@ function IndexPage(){
         <>
         <Nav />
         <div className="mt-4 gap-x-8 gap-y-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {places.length>0 && places.map(place=>(
-                <Link to={'/place/'+place._id} className="container">
+        {places.length > 0 && places.map(place => (
+            <Link to={'/place/' + place._id} key={place._id} className="container">
                 <div className="heart"><Button/></div>
                 <div className="">
                     <div className="mb-2">

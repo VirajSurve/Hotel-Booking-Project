@@ -1,3 +1,18 @@
+import mountain from "./icons/mountain.png";
+import garden from "./icons/garden.png";
+import car from "./icons/car.png";
+import bath from "./icons/bathtub.png";
+import washer from "./icons/washer.png";
+import workspace from "./icons/workspace.png";
+import pets from "./icons/footstep.png";
+import hottub from "./icons/hottub.png";
+import pool from "./icons/pool.png";
+import ice from "./icons/ice.png";
+import TV from "./icons/TV.png";
+import balcony from "./icons/balcony.png";
+import cctv from "./icons/cctv.png";
+
+
 export default function Perks({selected,onChange}){
 
     function handelCBClick(e){
@@ -18,37 +33,81 @@ export default function Perks({selected,onChange}){
                             <span>Wifi</span>
                         </label>
                         <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                            <input type="checkbox" checked={selected.includes("TV")} name="TV" onClick={handelCBClick}></input>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"W="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round"L="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125Z" />
-                            </svg>
+                        <input type="checkbox" checked={selected.includes("Mountain view")} name="Mountain view" onClick={handelCBClick}></input>
+                        <img className="size-7" src={mountain}></img>
+                        <span>Mountain view</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Garden view")} name="Garden view" onClick={handelCBClick}></input>
+                        <img className="size-7" src={garden}></img>
+                        <span>Garden view</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Car view")} name="Car view" onClick={handelCBClick}></input>
+                        <img className="size-7" src={car}></img>
+                        <span>Car view</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Bath")} name="Bath" onClick={handelCBClick}></input>
+                        <img className="size-7" src={bath}></img>
+                        <span>Bath</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Paid washer – In building")} name="Paid washer – In building" onClick={handelCBClick}></input>
+                        <img className="size-7" src={washer}></img>
+                        <span>Paid washer – In building</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Dedicated workspace")} name="Dedicated workspace" onClick={handelCBClick}></input>
+                        <img className="size-7" src={workspace}></img>
+                        <span>Dedicated workspace</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Pets allowed")} name="Pets allowed" onClick={handelCBClick}></input>
+                        <img className="size-7" src={pets}></img>
+                        <span>Pets allowed</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Private hot tub")} name="Private hot tub" onClick={handelCBClick}></input>
+                        <img className="size-7" src={hottub}></img>
+                        <span>Private hot tub</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Private outdoor pool")} name="Private outdoor pool" onClick={handelCBClick}></input>
+                        <img className="size-7" src={pool}></img>
+                        <span>Private outdoor pool</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("AC – split-type system")} name="AC – split-type system" onClick={handelCBClick}></input>
+                        <img className="size-7" src={ice}></img>
+                        <span>AC – split-type system</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Private back garden")} name="Private back garden" onClick={handelCBClick}></input>
+                        <img className="size-7" src={garden}></img>
+                        <span>Private back garden</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Free parking")} name="Free parking" onClick={handelCBClick}></input>
+                        <img className="size-7" src={car}></img>
+                        <span>Free parking</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("38-inch HDTV")} name="38-inch HDTV" onClick={handelCBClick}></input>
+                        <img className="size-7" src={TV}></img>
+                        <span>38-inch HDTV</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Private balcony")} name="Private balcony" onClick={handelCBClick}></input>
+                        <img className="size-7" src={balcony}></img>
+                        <span>Private balcony</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Exterior security")} name="Exterior security" onClick={handelCBClick}></input>
+                        <img className="size-7" src={cctv}></img>
+                        <span>Exterior security</span>
+                    </label>
 
-                            <span>TV</span>
-                        </label>
-                        <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                            <input type="checkbox" checked={selected.includes("Pets")} name="Pets" onClick={handelCBClick}></input>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"W="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round"L="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
-                            </svg>
-
-                            <span>Pets</span>
-                        </label>
-                        <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                            <input type="checkbox" checked={selected.includes("AC")} name="AC" onClick={handelCBClick}></input>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"W="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round"L="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
-                            </svg>
-
-                            <span>AC</span>
-                        </label>
-                        <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                            <input type="checkbox" checked={selected.includes("Parking")} name="Parking" onClick={handelCBClick}></input>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                            </svg>
-
-                            <span>Parking</span>
-                        </label>
         </>
     );
 }

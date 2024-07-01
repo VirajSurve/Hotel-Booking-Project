@@ -1,153 +1,158 @@
 
-.box-img {
-  height: 295px;
-  width: 100%;
-  max-width: 320px;
-  border-radius: 5%;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.place {
-  font-weight: bold;
-
-}
-.bi-star-fill {
-  font-size: 12px;
-}
-
-.rating{
+/* Center container vertically and horizontally */
+.container97 {
   display: flex;
-  justify-content: space-between;
-}
-.side {
-  color: grey;
-
-}
-
-.container img,
-.container p {
-  margin: 0;
-  padding: 1px 0;
-  cursor: pointer;
-  font-family:sans-serif;
-  font-weight: 100;
+  flex-direction: column;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-#period {
-  font-size: 14px;
-  color: grey;
-}
-
-
-.container {
-  margin: 10px;
-  position: relative;
-  width: fit-content;
-  padding: 10px; 
-  cursor: pointer;
-}
-
-.heart {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 1;
-  font-size: 20px;
-}
-
-.varad{
+.header97 {
   display: flex;
-  justify-content: space-between;
-}
-
-
-.each-card {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  flex-direction: column;
   align-items: center;
-  margin: 70px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  gap: 10px;
-
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
 }
 
+.text97 {
+  color: #F87171;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+}
 
-@media (max-width: 1200px) {
-  .each-card {
-    grid-template-columns: repeat(4, 1fr);
+.underline97 {
+  width: 61px;
+  height: 6px;
+  background: #F87171;
+  border-radius: 9px;
+}
+
+.inputs97 {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input97 {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.input97 img {
+  margin-right: 20px;
+}
+
+.input97 input {
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 19px;
+}
+
+.forgot-password97 {
+  text-align: center;
+  margin: 27px 0;
+  color: #797979;
+  font-size: 18px;
+}
+
+.forgot-password97 span {
+  color: #F87171;
+  cursor: pointer;
+}
+
+.submit-container97 {
+  display: flex;
+  gap: 30px;
+  margin: 30px auto;
+  justify-content: center;
+}
+
+.submit97 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 59px;
+  color: #fff;
+  background: #F87171;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gray {
+  background-color: #eaeaea;
+  color: #676767;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container97 {
+    padding: 20px;
   }
-  .box-img {
-    height: 235px;
-    max-width: 300px;
+
+  .text97 {
+    font-size: 36px;
   }
-  .container {
-    max-width: 310px;
+
+  .input97 {
+    width: 100%;
+    height: 60px;
+  }
+
+  .input97 input {
+    font-size: 16px;
+  }
+
+  .submit97 {
+    width: 180px;
+    height: 50px;
+    font-size: 16px;
   }
 }
 
-@media (max-width: 900px) {
-  .each-card {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 480px) {
+  .text97 {
+    font-size: 28px;
   }
-  .box-img {
-    height: 215px;
-    max-width: 275px;
-  }
-  .container {
-    max-width: 285px;
-  }
-}
 
-@media (max-width: 600px) {
-  .each-card {
-    grid-template-columns: repeat(2, 1fr);
+  .underline97 {
+    width: 40px;
+    height: 4px;
   }
-  .box-img {
-    height: 200px;
-    max-width: 220px;
-  }
-  .container {
-    max-width: 230px;
-  }
-}
 
-@media (max-width: 400px) {
-  .each-card {
-    grid-template-columns: 1fr;
+  .input97 {
+    height: 50px;
   }
-  .box-img {
-    height: 140px;
-    width: 150px;
-  }
-  .container {
-    max-width: 170px;
-  }
-}
 
-@media (max-width: 375px) {
-  .each-card {
-    grid-template-columns: 1fr;
+  .input97 input {
+    font-size: 14px;
   }
-  .box-img {
-    height: 130px;
+
+  .submit97 {
     width: 140px;
-  }
-  .container {
-    max-width: 160px;
-  }
-}
-
-@media (max-width: 360px) {
-  .each-card {
-    grid-template-columns: 1fr;
-  }
-  .box-img {
-    height: 120px;
-    width: 130px;
-  }
-  .container {
-    max-width: 150px;
+    height: 40px;
+    font-size: 14px;
   }
 }

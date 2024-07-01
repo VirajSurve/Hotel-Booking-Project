@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Perks from "../../Perks";
 import PhotosUploader from "../../PhotosUploader";
 import AccountNav from "../../AccountNav";
 import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../../UserContext";
 
 export default function PlacesFormPage(){
     const {id}=useParams();
@@ -16,11 +17,13 @@ export default function PlacesFormPage(){
     const [extraInfo, setExtraInfo] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
-    const [maxGuests, setMaxGuest] = useState(null);
+    const [maxGuests, setMaxGuest] = useState(5);
     const [redirect,setRedirect]=useState(false);
     const [price,setPrice]=useState(100);
     const [rate,setRate]=useState(1);
     const [reviews,setReviews]=useState(1);
+    // const [name,setName]=useState("owner");
+    // const {user}=useContext(UserContext);
 
     useEffect(() => {
         if (id) {
@@ -37,6 +40,7 @@ export default function PlacesFormPage(){
             setPrice(data.price);
             setRate(data.rate);
             setReviews(data.reviews);
+            // setName(data.name);
           });
         }
       }, [id]);
@@ -56,6 +60,8 @@ export default function PlacesFormPage(){
             price,
             rate,
             reviews,
+            // name
+            
         };
         if(id){
             //update

@@ -143,6 +143,7 @@ app.post("/places", (req, res) => {
         price,
         rate,
         reviews,
+        // name,
     } = req.body;
 
     // Ensure checkIn and checkOut are numbers
@@ -176,6 +177,7 @@ app.post("/places", (req, res) => {
                     price:priceNumber,
                     rate,
                     reviews,
+                    // name,
                 });
                 res.json(placeDoc);
             } catch (error) {
@@ -217,6 +219,7 @@ app.put('/places',async(req,res)=>{
         price,
         rate,
         reviews,
+        // name,
     }=req.body;
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
@@ -241,6 +244,7 @@ app.put('/places',async(req,res)=>{
                 price:priceNumber,
                 rate,
                 reviews,
+                // name,
             });
             await placeDoc.save();
             res.json('ok');
