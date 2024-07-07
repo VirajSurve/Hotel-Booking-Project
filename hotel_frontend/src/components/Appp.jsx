@@ -8,7 +8,7 @@ function App() {
       {Places.map((place, index) => (
         <Container
           key={index}
-          img={place.imgURL}
+          // img={place.imgURL}
           place={place.place}
           rate={place.rate}
           side={place.side}

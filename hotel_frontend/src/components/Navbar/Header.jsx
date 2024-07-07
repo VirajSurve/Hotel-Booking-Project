@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../UserContext";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import AnyTime from "../anytime/AnyTime21";
+import Add_guest from "../Add_guest.css/Add_guest";
 
 function Header(){
     
     const {user}=useContext(UserContext);
+ 
 
     return(
         <header className='flex justify-between mb-5'>
@@ -18,9 +23,19 @@ function Header(){
         <div className='flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300 '>
           <div>AnyWhere</div>
           <div className='border-l border-gray-300'></div>
-          <div>AnyTime</div>
+          <div>
+          <Popup trigger={<button >Anytime</button>} position="bottom center" className="custom-popup" contentStyle={{ padding: '20px', border: '1px solid #ddd', position: 'absolute', zIndex: '999', pointerEvents: 'auto', top:'-975', left: '410.594px' }}>
+              <div>
+                <AnyTime />
+              </div>
+            </Popup>
+          </div>
           <div className='border-l border-gray-300'></div>
-          <div>Add guests</div>
+           <Popup trigger={<button>Addguest</button>}position ="bottom center" className="custom-popup" contentStyle={{padding:'20px',border:'1px solid #add',position:'absolute',zIndex:'999',pointerEvents:'auto',top:'-975px',left:'410.594px'}}>
+           <div>
+            <Add_guest />
+            </div>
+           </Popup>
           <button className='bg-primary text-white p-1 rounded-full'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 w-5 h-5">
   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -40,7 +55,6 @@ function Header(){
     {user.name}
   </div>
 )}
-
         </Link>
       </header>
     );

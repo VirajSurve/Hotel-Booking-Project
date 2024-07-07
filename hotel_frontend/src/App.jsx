@@ -9,8 +9,8 @@ import axios from "axios";
 import ProfilePage from "./components/Pages/ProfilePage.jsx";
 import PlacesFormPage from "./components/Pages/PlacesFormPage.jsx";
 import PlacePage from "./components/Pages/PlacePage.jsx";
-axios.defaults.withCredentials = true;
 
+axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
