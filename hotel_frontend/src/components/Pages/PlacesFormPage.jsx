@@ -22,6 +22,8 @@ export default function PlacesFormPage(){
     const [price,setPrice]=useState(100);
     const [rate,setRate]=useState(1);
     const [reviews,setReviews]=useState(1);
+    const [X,setX]=useState(0);
+    const [Y,setY]=useState(0);
     // const [name,setName]=useState("owner");
     // const {user}=useContext(UserContext);
 
@@ -40,6 +42,8 @@ export default function PlacesFormPage(){
             setPrice(data.price);
             setRate(data.rate);
             setReviews(data.reviews);
+            setX(data.X);
+            setY(data.Y);
             // setName(data.name);
           });
         }
@@ -61,6 +65,8 @@ export default function PlacesFormPage(){
             rate,
             reviews,
             // name
+            X,
+            Y
             
         };
         if(id){
@@ -152,6 +158,14 @@ export default function PlacesFormPage(){
               <div>
                 <h3 className="mt-2 -mb-1">Reviews</h3>
                 <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={reviews} onChange={e => { setReviews(e.target.value) }} />
+              </div>
+              <div>
+                <h3 className="mt-2 -mb-1">X</h3>
+                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={X} onChange={e => { setX(e.target.value) }} />
+              </div>
+              <div>
+                <h3 className="mt-2 -mb-1">Y</h3>
+                <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={Y} onChange={e => { setY(e.target.value) }} />
               </div>
             </div>
             <button className="bg-primary mt-5 rounded-full py-1 px-2  w-full border my-1">Save</button>

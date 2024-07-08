@@ -14,6 +14,8 @@ const placeSchema=new mongoose.Schema({
     price:Number,
     rate:Number,
     reviews:Number,
+    X:Number,
+    Y:Number
 });
 
 const PlaceModel=mongoose.model('Place',placeSchema);
