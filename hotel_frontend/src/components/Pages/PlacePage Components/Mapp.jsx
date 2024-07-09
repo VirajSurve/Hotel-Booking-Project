@@ -69,8 +69,8 @@ const Mapp = ({place}) => {
     // margin:'10px',
   };
   return (
-    <div style={outerContainerStyle}>
-      <div ref={mapContainerRef} style={mapStyle} id="map" />
+    <div style={outerContainerStyle} >
+      <div ref={mapContainerRef} style={mapStyle} id="map" className='rounded-xl'/>
     </div>
   );
 };

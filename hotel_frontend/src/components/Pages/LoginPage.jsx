@@ -15,6 +15,7 @@ function LoginPage(){
     const [redirect,setRedirect]=useState(false);
     const {setUser}=useContext(UserContext);
 
+
     async function register(e){
         e.preventDefault();
         try{
@@ -23,6 +24,7 @@ function LoginPage(){
             name,
             email,
             password,
+            
         });
         alert("Registration Successfull. Now you can log in")
         }catch(e){
@@ -37,7 +39,9 @@ function LoginPage(){
         console.log("login clicked");
         const {data}=await axios.post("http://localhost:4000/login",{
           email,
-          password
+          password,
+          // startDate,
+          // endDate,
       });
       setUser(data.UserDoc);
       alert("Successfully LoggedIn")
