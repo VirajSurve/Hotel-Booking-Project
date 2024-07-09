@@ -6,6 +6,7 @@ import Title from "./PlacePage Components/Title";
 import Images from "./PlacePage Components/images";
 import Information from "./PlacePage Components/Information";
 import Reviews from "./PlacePage Components/Reviews";
+import Mapp from "./PlacePage Components/Mapp.jsx";
 
 export default function PlacesPage() {
     const { id } = useParams();
@@ -38,6 +39,7 @@ export default function PlacesPage() {
                 <Title place={place} />
                 <Images place={place} showAllPhotos={showAllPhotos} setAllPhotos={setAllPhotos} />
                 <Information place={place} />
+                <Mapp place={place} />
                 <Reviews place={place} />
             </div>
         </div>

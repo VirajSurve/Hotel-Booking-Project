@@ -41,10 +41,5 @@
     100% { opacity: 0; }
   }
 
-  .custom-popup2{
-    position: absolute !important; /* Override default position */
-    top: -975px !important;
-    left: 410.594px !important;
-    z-index: 999 !important;
-  }
+ 
   
