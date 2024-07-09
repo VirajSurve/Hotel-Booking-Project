@@ -2,30 +2,24 @@ import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import pinIcon from './pin-location-4355.svg'
-const Mapp = () => {
+const Mapp = ({place}) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
 
   useEffect(() => {
     if (mapContainerRef.current && !mapRef.current) {
-      mapRef.current = L.map(mapContainerRef.current).setView([18.5488, 73.9109], 7);
+      mapRef.current = L.map(mapContainerRef.current).setView([place.X, place.Y], 20);
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(mapRef.current);
 
       const data = {
         pict: {
-          coords: [18.45754, 73.85079],
+          coords: [place.X,place.Y],
           title: "Pict pune",
           address: `<b>Pict pune</b><br>123<br>PUNE<br>`,
           website: 'https://google.com',
           phone: 123,
-        },
-        vimannagar: {
-          coords: [18.57955, 73.90905],
-        },
-        punestation: {
-          coords: [18.52974, 73.87261],
         }
       };
       const customIcon = L.icon({
