@@ -9,6 +9,7 @@ import axios from "axios";
 import ProfilePage from "./components/Pages/ProfilePage.jsx";
 import PlacesFormPage from "./components/Pages/PlacesFormPage.jsx";
 import PlacePage from "./components/Pages/PlacePage.jsx";
+// import ThirdPage from "./components/Thirdpage.jsx";
 
 axios.defaults.withCredentials = true;
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="register" element={<LoginPage />} />
           <Route path="account/:subpage?" element={<ProfilePage />} />
           <Route path="account/places" element={<PlacesPage />} />
+          {/* <Route path="third" element={<ThirdPage />} /> */}
           <Route path="account/places/new" element={<PlacesFormPage />} />
           <Route path="account/places/:id" element={<PlacesFormPage />} />
           <Route path="place/:id" element={<PlacePage />} />
@@ -30,5 +32,4 @@ function App() {
     </UserContextProvider>
   );
 }
-
 export default App;

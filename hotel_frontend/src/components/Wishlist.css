@@ -1,0 +1,30 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box-img2 {
+    height: 290px;
+    width: 100%;
+    max-width: 310px;
+    border-radius: 10%;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .centerit {
+    display: flex;
+    justify-content: center; 
+    height: 100vh; 
+  }
+
+  .container2{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+  
+
+   */
