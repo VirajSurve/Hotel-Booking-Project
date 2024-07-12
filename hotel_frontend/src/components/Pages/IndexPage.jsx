@@ -1,5 +1,5 @@
 import Nav from "../Nav";
-import Header from "../Navbar/Header";
+import Header from "../Header/Header.jsx";
 import Appp from "../Appp.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";

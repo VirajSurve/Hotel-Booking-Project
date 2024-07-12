@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Navbar/Header.jsx";
+import Header from "./Header/Header.jsx";
 import Footer from "./Footer.jsx";
 import "../index.css";
 
