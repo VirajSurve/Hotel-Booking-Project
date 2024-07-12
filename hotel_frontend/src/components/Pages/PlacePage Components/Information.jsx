@@ -1,10 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Rating from './Rating';
 import { UserContext } from "../../../UserContext";
-import { format } from 'date-fns';
+import { differenceInBusinessDays, differenceInCalendarDays, format } from 'date-fns';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+
 
 export default function Information({ place }) {
-    const { startDate, setStartDate, endDate, setEndDate, guests } = useContext(UserContext);
+    const { startDate, setStartDate, endDate, setEndDate, guests, setGuests } = useContext(UserContext);
+    let numberOfNights=0;
+    const [name,setName]=useState('');
+    const [mobile,setMobile]=useState('');
+    const [redirect,setRedirect]=useState('');
+    const {user}=useContext(UserContext);
+
+    useEffect(()=>{
+        if(user){
+            setName(user.name);
+        }
+    },[user])
+
+    if(startDate && endDate){
+        numberOfNights=differenceInCalendarDays(endDate,startDate);
+    }
 
     const handleStartDateChange = (event) => {
         setStartDate(new Date(event.target.value));
@@ -15,8 +33,26 @@ export default function Information({ place }) {
     };
 
     const formatDateToInputValue = (date) => {
-        return format(date, 'yyyy-MM-dd');
+        return date ? format(date, 'yyyy-MM-dd') : '';
     };
+
+    async function handleBooking(){
+        const response=await axios.post("http://localhost:4000/booking",{
+            place:place._id,
+            startDate,
+            endDate,
+            guests,
+            name,
+            mobile,
+            price:numberOfNights*place.price,
+        });
+        const bookingId=response.data._id;
+        setRedirect(`/account/bookings/${bookingId}`);
+    }
+
+    if(redirect){
+        return <Navigate to={redirect}></Navigate>
+    }
 
     return (
         <div className='center'>
@@ -30,6 +66,7 @@ export default function Information({ place }) {
                     <p className='space'>Max Guest {place.maxGuests}</p> 
                     <Rating place={place} />
                 </div>
+
                 <div className='chart'>
                     <p id='price' className='text-2xl text-center mb-2'>Price: ${place.price} / per night</p>
                     <div className='border rounded-2xl'>
@@ -57,11 +94,36 @@ export default function Information({ place }) {
                                 className='bg-gray-200 rounded-full py-1 px-2 w-full border my-1' 
                                 type='number' 
                                 value={guests} 
-                                readOnly
+                                onChange={e => setGuests(e.target.value)}
                             />
                         </div>
+                        {numberOfNights>0 && (
+                            <div>
+                            <div className='px-4 py-4 border-t'>
+                            <label>Name:</label>
+                            <input 
+                                className='bg-gray-200 rounded-full py-1 px-2 w-full border my-1' 
+                                type='text' 
+                                value={name} 
+                                onChange={e => setName(e.target.value)}
+                            />
+                            </div>
+                            <div className='px-4 py-4 border-t'>
+                            <label>Mobile:</label>
+                            <input 
+                                className='bg-gray-200 rounded-full py-1 px-2 w-full border my-1' 
+                                type='tel' 
+                                value={mobile} 
+                                onChange={e => setMobile(e.target.value)}
+                            />
+                            </div>
+                            </div>
+                        )}
                     </div>
-                    <button className='bg-primary rounded-2xl w-full mt-5'>Book now</button>
+                    <button className='bg-primary rounded-2xl w-full mt-5' onClick={handleBooking}>Book now</button>
+                    {numberOfNights>0 &&(
+                        <span>${numberOfNights*place.price}</span>
+                    )}
                 </div>
             </div>
         </div>
