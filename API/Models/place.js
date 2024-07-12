@@ -1,23 +1,25 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const placeSchema=new mongoose.Schema({
-    owner:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
-    title:String,
-    address:String,
-    photos:[String],
-    description:String,
-    perks:[String],
-    extraInfo:String,
-    checkIn:Number,
-    checkOut:Number,
-    maxGuests:Number,
-    price:Number,
-    rate:Number,
-    reviews:Number,
-    X:Number,
-    Y:Number
+const placeSchema = new Schema({
+    owner: { type: mongoose.Schema.ObjectId, ref: 'User' },
+    title: { type: String, required: true },
+    address: { type: String, required: true },
+    photos: [String],
+    photoLink: String,
+    description: String,
+    perks: [String],
+    extraInfo: String,
+    checkIn: Number,
+    checkOut: Number,
+    maxGuests: Number,
+    price: Number,
+    rate: Number,
+    reviews: [String],
+    X: Number,
+    Y: Number,
+    name: String,
 });
 
-const PlaceModel=mongoose.model('Place',placeSchema);
+const Place = mongoose.model('Place', placeSchema);
 
-export default PlaceModel;
+export default Place;

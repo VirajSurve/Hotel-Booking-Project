@@ -6,11 +6,13 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import imageDownloader from "image-downloader";
-import path from "path";
+import path, { resolve } from "path";
 import { fileURLToPath } from 'url';
 import multer from "multer";
 import fs from "fs";
 import Place from "./Models/place.js"
+import BookingModel from "./Models/booking.js";
+import { rejects } from "assert";
 
 
 // Function to get __dirname equivalent in ES modules
@@ -36,6 +38,19 @@ mongoose.connect("mongodb+srv://virajsurve:1gy3JDrqYLDptMlc@cluster0.hc9gkg7.mon
 app.get("/test", (req, res) => {
     res.json("test ok");
 });
+
+
+function getUserDataFromToken(req){
+    return new Promise((resolve,reject)=>{
+        const {token}=req.cookies;
+    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
+        if(err) throw err;
+        resolve(userData);
+    });
+    });
+}
+
+
 
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
@@ -145,6 +160,7 @@ app.post("/places", (req, res) => {
         reviews,
         X,
         Y,
+        name,
     } = req.body;
 
     console.log("reviews:",reviews);
@@ -181,6 +197,7 @@ app.post("/places", (req, res) => {
                     reviews,
                     X,
                     Y,
+                    name,
                 });
                 res.json(placeDoc);
             } catch (error) {
@@ -224,6 +241,7 @@ app.put('/places',async(req,res)=>{
         reviews,
         X,
         Y,
+        name,
     }=req.body;
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
@@ -250,6 +268,7 @@ app.put('/places',async(req,res)=>{
                 reviews,
                 X,
                 Y,
+                name,
             });
             await placeDoc.save();
             res.json('ok');
@@ -259,7 +278,41 @@ app.put('/places',async(req,res)=>{
 
 app.get('/places', async (req,res)=>{
     res.json(await Place.find());
-})
+});
+
+app.post('/booking', async (req, res) => {
+    const userData=await getUserDataFromToken(req);
+    const { place, startDate, endDate, guests, name, mobile, price } = req.body;
+
+    try {
+        // Assuming you've imported the BookingModel correctly
+        const booking = await BookingModel.create({
+            place,
+            startDate,
+            endDate,
+            guests,
+            name,
+            mobile,
+            price,
+            user:userData.id,
+        });
+
+        // Successfully created the booking; send the response
+        res.json(booking);
+    } catch (err) {
+        // Handle any errors (e.g., validation failure, database issue)
+        console.error('Error creating booking:', err);
+        res.status(500).json({ error: 'An error occurred while creating the booking.' });
+    }
+});
+
+
+
+app.get('/booking', async (req, res) => {
+    const userData = await getUserDataFromToken(req);
+    res.json(await BookingModel.find({ user: userData.id }).populate('place'));
+});
+
 
 app.listen(4000, () => {
     console.log("Server started on port 4000");
