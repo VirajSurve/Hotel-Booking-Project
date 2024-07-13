@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.modal {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 280px;
+    width: 220px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wishlist {
+    border: 1px solid white;
+  }
+  
+  .content p,
+  .content div,
+  .modal div {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  

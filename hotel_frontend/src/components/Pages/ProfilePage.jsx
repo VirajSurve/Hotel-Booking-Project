@@ -30,8 +30,6 @@ function ProfilePage(){
         subpage="profile";
     }
 
-
-
     return(
         <div>
            <AccountNav /> 
