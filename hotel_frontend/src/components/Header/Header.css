@@ -10,6 +10,37 @@
   background-color: black;
 }
 
+/* CSS */
+.parent-container1 {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.wow {
+  display: flex;
+  width: 800px;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.now{
+  width: 800px;
+  height: 65px;
+  box-shadow: 
+  0 4px 8px rgba(0, 0, 0, 0.1), 
+  0 -4px 8px rgba(0, 0, 0, 0.1), /* Top shadow */
+  0 2px 4px rgba(0, 0, 0, 0.06), 
+  0 -2px 0px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 2;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px; /* full-rounded */
+  padding: 8px 16px; 
+  justify-content: space-between;
+   
+}
+
 
 .header{
   margin-left: 70px;
