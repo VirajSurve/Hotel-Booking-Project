@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
+import 'reactjs-popup/dist/index.css';
 import AnyTime from "../anytime/AnyTime21";
 import Add_guest from "../Add_guest.css/Add_guest";
 import Any_where from "../Anywhere/Any_where";
-import Popup1 from "reactjs-popup";
+
 import PopupContent from "./PopupContent";
 
 function Header(){
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
     
     const {user}=useContext(UserContext);
  
@@ -66,7 +76,7 @@ function Header(){
 )}
         </Link> */}
 
-        <Popup className = "profile" trigger={<div className='profile1 flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4'>
+        {/* <Popup className = "profile" trigger={<div className='profile1 flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4'>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 </svg>
@@ -81,7 +91,25 @@ function Header(){
       <hr />
         </div>} modal>
         {close => <PopupContent close = {close}/>}
-        </Popup>
+        </Popup> */}
+
+<div className="profile-container relative">
+  <div onClick={togglePopup} className='profile1 flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4'>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>
+    {user && (
+  <div>
+    {user.name}
+  </div>
+)}
+  </div>
+  {isPopupOpen && <PopupContent close={closePopup} />}
+</div>
+
       </header>
     );
 }
