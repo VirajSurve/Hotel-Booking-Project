@@ -1,4 +1,4 @@
-import Recat from "react";
+
 const Places = [
   {
     imgURL:

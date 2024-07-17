@@ -23,7 +23,16 @@ function Header(){
   };
     
     const {user}=useContext(UserContext);
- 
+    let firstLetter = "";
+    if (user && user.name) {
+      firstLetter = user.name.charAt(0);
+    }
+    
+    const [boldElement, setBoldElement] = useState("stays");
+
+    function handleClick(element) {
+      setBoldElement(element);
+    }
 
     return(
         <header>
@@ -35,14 +44,17 @@ function Header(){
 <span className='font-bold text-xl text-purple-500'>Four Seasons</span>
 
         </Link>
-<div className="flex gap-10 text-base mt-2">
-  <div>
-    <p>Stays</p>
-  </div>
-  <div>
-    <p>Experiences</p>
-  </div>
-</div>
+
+        <div className="flex gap-10 text-base mt-2 font-semibold">
+      <div onClick={() => handleClick("stays")} className="individual-div cursor-pointer">
+        <p className={boldElement === "stays" ? "text-black" : "text-gray-400"}>Stays</p>
+      </div>
+      <div onClick={() => handleClick("experiences")} className="individual-div cursor-pointer">
+        <p className={boldElement === "experiences" ? "text-black" : "text-gray-400"}>Experiences</p>
+      </div>
+    </div>
+
+
         {/* <Link to={user?"/account":"/login"} className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 cursor-pointer'>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -62,13 +74,11 @@ function Header(){
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-    </svg>
+
     {user && (
-  <div>
-    {user.name}
-  </div>
+  <div className="circle-icon">
+  <p className = "first-latter">{firstLetter}</p>
+</div>
 )}
   </div>
   {isPopupOpen && <PopupContent close={closePopup} />}
@@ -76,9 +86,9 @@ function Header(){
 </div>
 <div className ="parent-container1 mb-7">
 <div className="wow">
-<div className='now flex gap-2 border border-gray-300 rounded-full shadow-md shadow-gray-300 '>
+<div className='now flex gap-2 border border-gray-300 rounded-full shadow-md shadow-gray-250'>
 
-          <div><Popup trigger={<button className="mt-2 ml-12">Anywhere</button>} 
+          <div className= "any1"><Popup trigger={<button className="mt-2 ml-16">Anywhere</button>} 
           
           position="bottom center" className="custom-popup" contentStyle={{ width:'250px', padding: '20px', border: '1px solid #ddd', position: 'absolute', zIndex: '999', pointerEvents: 'auto', top:'-975', left: '410.594px' }}>
               <div>
@@ -86,7 +96,7 @@ function Header(){
               </div>
             </Popup></div>  
           <div className='border-l border-gray-300'></div>
-          <div>
+          <div className= "any2">
           <Popup trigger={<button className="mt-2">Anytime</button>} position="bottom center" className="custom-popup" contentStyle={{ padding: '20px', border: '1px solid #ddd', position: 'absolute', zIndex: '999', pointerEvents: 'auto', top:'-975', left: '410.594px' }}>
               <div>
                 <AnyTime />
@@ -94,7 +104,7 @@ function Header(){
             </Popup>
           </div>
           <div className='border-l border-gray-300'></div>
-           <div><Popup trigger={<button className="mt-2">Addguest</button>}position ="bottom center" className="custom-popup" contentStyle={{padding:'20px',border:'1px solid #add',position:'absolute',zIndex:'999',pointerEvents:'auto',top:'-975px',left:'410.594px'}}>
+           <div className= "any3"><Popup trigger={<button className="mt-2">Addguest</button>}position ="bottom center" className="custom-popup" contentStyle={{padding:'20px',border:'1px solid #add',position:'absolute',zIndex:'999',pointerEvents:'auto',top:'-975px',left:'410.594px'}}>
            <div>
             <Add_guest />
             </div>

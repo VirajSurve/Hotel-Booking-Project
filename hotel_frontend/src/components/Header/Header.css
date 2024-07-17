@@ -17,6 +17,24 @@
   
 }
 
+
+.circle-icon {
+  width: 33px;
+  height: 33px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Vertically centers the paragraph */
+  justify-content: center; /* Horizontally centers the paragraph */
+}
+
+.first-latter {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+
+
 .wow {
   display: flex;
   width: 800px;
@@ -27,11 +45,8 @@
 .now{
   width: 800px;
   height: 65px;
-  box-shadow: 
-  0 4px 8px rgba(0, 0, 0, 0.1), 
-  0 -4px 8px rgba(0, 0, 0, 0.1), /* Top shadow */
-  0 2px 4px rgba(0, 0, 0, 0.06), 
-  0 -2px 0px rgba(0, 0, 0, 0.06);
+
+
   display: flex;
   gap: 2;
   border: 1px solid #d1d5db;
@@ -45,6 +60,7 @@
 .header{
   margin-left: 70px;
   margin-right: 70px;
+
 }
 
 .marquee {
