@@ -5,10 +5,16 @@
     align-items: center;
 }
 .any_image {
-    width: 21.5px;
-    height: 21.5px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px; /* Adjust margin as needed */
+    border: 3px solid  #A855F7;
+    border-radius: 25%;
+
 }
 .any_input {
-    padding: 5px; /* Adjust padding as needed */
+    padding: 10x; /* Adjust padding as needed */
+    border-radius:7px;
+    border: 4px solid #A855F7;
+    background-color:white;
 }

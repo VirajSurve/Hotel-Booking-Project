@@ -8,18 +8,22 @@
 
 .heading23{
     font-size: 20px;
-    margin: 5px 0;
-    color: #fd577e;
+    font-style: arial;
+    /* margin: 5px 0; */
+    color:  #A855F7;
   }
-  .heading23a{
-    font-size: 20px;
+  .heading223{
+   font-size: 34px;
   }
+  
   
   .cover23 {
     /* border: 5px solid grey; */
     /* padding: 20px; */
     text-align: center;
-    background-color:white;
+    background-color:white; 
+    border:3px solid #A855F7;
+    border-radius: 16px;
     /* border-radius: 6px; */
   }
   
@@ -27,20 +31,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px; /* Ensure full viewport height */
+    height: 107px; 
+    /* Ensure full viewport height */
+    
   }
   
  .button23 {
     display: inline-block;
-    background-color:grey;
-    border: none;
+    background-color:rgba(170, 168, 168, 0.566);
+    border-radius: 6px;
     width: 60px;
-    margin: 5px;
+    margin: 6px;
     color: #fff;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+  }
+  .button23:hover
+  {
+    background-color:grey;
   }
   
   /* .button23:hover {

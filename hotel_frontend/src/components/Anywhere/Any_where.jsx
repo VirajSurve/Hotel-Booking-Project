@@ -6,7 +6,7 @@ function Anywhere() {
         <div>
             <div className="searchkar">
                 <img className="any_image" src={pick} alt="Search Icon" />
-                <input className="any_input" type="text" placeholder="Search..." />
+                <input className="any_input" type="text" placeholder="  Search..." />
             </div>
         </div>
     );

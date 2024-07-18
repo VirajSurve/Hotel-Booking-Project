@@ -9,8 +9,9 @@
 }
 .calender21
 {
-  padding:20px;
-  border:2px solid black;
+  padding:5px;
+  border:3px solid  #A855F7;
+  border-radius: 16px;
   cursor:pointer;
 }
 .dateRange21{
