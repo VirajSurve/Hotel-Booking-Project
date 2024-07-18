@@ -8,7 +8,6 @@ import 'reactjs-popup/dist/index.css';
 import AnyTime from "../anytime/AnyTime21";
 import Add_guest from "../Add_guest.css/Add_guest";
 import Any_where from "../Anywhere/Any_where";
-
 import PopupContent from "./PopupContent";
 
 function Header(){
@@ -84,6 +83,7 @@ function Header(){
   {isPopupOpen && <PopupContent close={closePopup} />}
 </div >
 </div>
+
 <div className ="parent-container1 mb-7">
 <div className="wow">
 <div className='now flex gap-2 border border-gray-300 rounded-full shadow-md shadow-gray-250'>
