@@ -90,14 +90,34 @@ function Header(){
 
           <div className= "any1"><Popup trigger={<button className="mt-2 ml-16">Anywhere</button>} 
           
-          position="bottom center" className="custom-popup" contentStyle={{ width:'250px', padding: '20px', border: '1px solid #ddd', position: 'absolute', zIndex: '999', pointerEvents: 'auto', top:'-975', left: '410.594px' }}>
+          position="bottom center" className="custom-popup"  contentStyle={{ 
+            width: '223px',  // Set the width of the popup
+            height: '94px', // Set the height of the popup
+            padding: '20px', 
+            border: '1px solid #ddd', 
+            position: 'absolute', 
+            zIndex: '999', 
+            pointerEvents: 'auto', 
+            top:'140.41 px',
+            left:'40.98px'
+          }}>
               <div>
                 <Any_where/>
               </div>
             </Popup></div>  
           <div className='border-l border-gray-300'></div>
           <div className= "any2">
-          <Popup trigger={<button className="mt-2">Anytime</button>} position="bottom center" className="custom-popup" contentStyle={{ padding: '20px', border: '1px solid #ddd', position: 'absolute', zIndex: '999', pointerEvents: 'auto', top:'-975', left: '410.594px' }}>
+          <Popup trigger={<button className="mt-2">Anytime</button>} position="bottom center"  contentStyle={{ 
+    width: '205px',  // Set the width of the popup
+    height: '94px', // Set the height of the popup
+    padding: '20px', 
+    border: '1px solid #ddd', 
+    position: 'absolute', 
+    zIndex: '999', 
+    pointerEvents: 'auto', 
+    top:'140.41 px',
+    left:'40.98px'
+  }}>
               <div>
                 <AnyTime />
               </div>

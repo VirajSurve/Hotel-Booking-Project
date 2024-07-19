@@ -1,5 +1,8 @@
 import './Footer.css';
-
+import insta from "../../public/Icons/icons8-insta-48.png";
+import fb from "../../public/Icons/icons8-facebook-48.png";
+import twitter from "../../public/Icons/icons8-twitter-48.png";
+import linkedin from "../../public/Icons/icons8-linkedin-48.png";
 const Footer=()=>{
  return(
   <div className="footer">
@@ -53,10 +56,10 @@ const Footer=()=>{
        <div className="sb__footer-links_div">
         <h4 className="font-semibold">Coming soon on</h4>
         <div className="socialmedia">
-          {/* <p><img src={fb} alt="facebook"/></p>
+          <p><img src={fb} alt="facebook"/></p>
           <p><img src={twitter} alt="twiiter"/></p>
           <p><img src={linkedin} alt="linkedin"/></p>
-          <p><img src={insta} alt="instagram"/></p> */}
+          <p><img src={insta} alt="instagram"/></p>
         </div>
        </div>
       </div>
@@ -79,4 +82,3 @@ const Footer=()=>{
  )
 }
 export default Footer;
-

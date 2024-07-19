@@ -19,7 +19,6 @@ function Add_guest() {
         <div className="cont23">
             <div className="cover23">
                 <h1 className="heading23">Guest</h1>
-                <h2 classname="heading223">add your guest</h2>
                 <h2 className="heading23a">{guests}</h2>
                 <button className="button23" onClick={decrease}>-</button>
                 <button className="button23" onClick={increase}>+</button>
