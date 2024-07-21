@@ -1,45 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import Wishlist from './Wishlist';
-import { CartProvider } from 'react-use-cart';
-// import Header2 from './Header/Header2';
-import Footer from './Footer';
-import Header from './Header/Header';
+// WishlistPage.jsx
+import React, { useEffect } from 'react';
+import { useWishlist } from '../WishlistContext';
 import axios from 'axios';
+import './Wishlist.css';
+import { Link } from 'react-router-dom';
 
-function ThirdPage() {
-//   const { setUrl, setPlace, setSide, setPrice, setSpace, setUrl1, setUrl2, setUrl3, setUrl4, setRate, setReview, setIcon1, setIcon2 } = useGlobal();
-const [places,setPlaces]=useState([]);
-useEffect(()=>{
-    axios.get("http://localhost:4000/places").then(response=>{
-        setPlaces([...response.data]);
-    });
-    console.log("ThirdPage:",places);
-},[]);
+function Wishlist() {
+  const { wishlistItems, setWishlistItems } = useWishlist();
 
-  const handleWishlistClick = (placess) => {
-    // setUrl(placess.house);
-    // setPlace(placess.place);
-    // setSide(placess.side);
-    // setPrice(placess.price);
-    // setSpace(placess.space);
-    // setRate(placess.rate);
-    // setUrl1(placess.interior);
-    // setUrl2(placess.living);
-    // setUrl3(placess.kitchen);
-    // setUrl4(placess.bathroom);
-    // setReview(placess.reviews);
-    // setIcon1(placess.icon1);
-    // setIcon2(placess.icon2);
+  useEffect(() => {
+    axios.get('http://localhost:4000/wishlist')
+      .then(response => {
+        setWishlistItems(response.data);
+      })
+      .catch(err => {
+        console.error('Error fetching wishlist:', err);
+      });
+  }, [setWishlistItems]);
+
+  const handleRemoveItem = (itemId) => {
+    axios.delete(`http://localhost:4000/wishlist/${itemId}`)
+      .then(() => {
+        setWishlistItems(wishlistItems.filter(item => item._id !== itemId));
+      })
+      .catch(err => {
+        console.error('Error removing wishlist item:', err);
+      });
   };
 
+  if (wishlistItems.length === 0) return <h1 className='text-center'>Your wishlist is empty</h1>;
+
   return (
-    <CartProvider>
-      {/* <Header /> */}
-      <hr />
-      <Wishlist places={places} onWishlistClick={handleWishlistClick} />
-      <Footer/>
-    </CartProvider>
+    <div>
+      <div className="mt-8 ml-28 mb-8 mr-0">
+        <h1 className="text-3xl font-semibold">Wishlist ({wishlistItems.length})</h1>
+      </div>
+
+      <div className='centerit'>
+        <div className='container2'>
+          {wishlistItems.map(item => (
+            <div key={item._id}>
+              <Link to={`/place/${item.place._id}`}>
+                <img
+                  className="box-img2"
+                  src={`http://localhost:4000/upload/${item.place.photos[0]}`}
+                  alt={item.place.title}
+                />
+              </Link>
+              <h2>{item.place.title}</h2>
+              <button onClick={() => handleRemoveItem(item._id)}>Remove</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default ThirdPage;
+export default Wishlist;

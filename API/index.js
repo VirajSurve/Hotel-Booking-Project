@@ -295,53 +295,55 @@ app.get('/booking', async (req, res) => {
     res.json(await BookingModel.find({ user: userData.id }).populate('place'));
 });
 
+// server.js
+
 // Add to wishlist
 app.post('/wishlist', async (req, res) => {
     const userData = await getUserDataFromToken(req);
     const { placeId } = req.body;
-
+  
     try {
-        const wishlistItem = await Wishlist.create({
-            userId: userData.id,
-            place: placeId,
-        });
-        res.json(wishlistItem);
+      const wishlistItem = await Wishlist.create({
+        userId: userData.id,
+        place: placeId,
+      });
+      res.json(wishlistItem);
     } catch (err) {
-        console.error('Error adding to wishlist:', err);
-        res.status(500).json({ error: 'An error occurred while adding to the wishlist.' });
+      console.error('Error adding to wishlist:', err);
+      res.status(500).json({ error: 'An error occurred while adding to the wishlist.' });
     }
-});
-
-// Get wishlist items for a user
-app.get('/wishlist', async (req, res) => {
+  });
+  
+  // Get wishlist items for a user
+  app.get('/wishlist', async (req, res) => {
     const userData = await getUserDataFromToken(req);
     try {
-        const wishlistItems = await Wishlist.find({ userId: userData.id }).populate('place');
-        res.json(wishlistItems);
+      const wishlistItems = await Wishlist.find({ userId: userData.id }).populate('place');
+      res.json(wishlistItems);
     } catch (err) {
-        console.error('Error fetching wishlist:', err);
-        res.status(500).json({ error: 'An error occurred while fetching the wishlist.' });
+      console.error('Error fetching wishlist:', err);
+      res.status(500).json({ error: 'An error occurred while fetching the wishlist.' });
     }
-});
-
-// Remove from wishlist
-app.delete('/wishlist/:id', async (req, res) => {
+  });
+  
+  // Remove from wishlist
+  app.delete('/wishlist/:id', async (req, res) => {
     const userData = await getUserDataFromToken(req);
     const { id } = req.params;
-
+  
     try {
-        const result = await Wishlist.findOneAndDelete({ _id: id, userId: userData.id });
-        if (result) {
-            res.json({ message: 'Removed from wishlist' });
-        } else {
-            res.status(404).json({ error: 'Wishlist item not found' });
-        }
+      const result = await Wishlist.findOneAndDelete({ _id: id, userId: userData.id });
+      if (result) {
+        res.json({ message: 'Removed from wishlist' });
+      } else {
+        res.status(404).json({ error: 'Wishlist item not found' });
+      }
     } catch (err) {
-        console.error('Error removing from wishlist:', err);
-        res.status(500).json({ error: 'An error occurred while removing from the wishlist.' });
+      console.error('Error removing from wishlist:', err);
+      res.status(500).json({ error: 'An error occurred while removing from the wishlist.' });
     }
-});
-
+  });
+  
 app.listen(4000, () => {
     console.log("Server started on port 4000");
 });
