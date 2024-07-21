@@ -10,20 +10,18 @@ import path, { resolve } from "path";
 import { fileURLToPath } from 'url';
 import multer from "multer";
 import fs from "fs";
-import Place from "./Models/place.js"
+import Place from "./Models/place.js";
 import BookingModel from "./Models/booking.js";
-import { rejects } from "assert";
-
+import Wishlist from "./Models/Wishlist.js";
 
 // Function to get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use('/upload',express.static(__dirname+'/upload'))
+app.use('/upload', express.static(__dirname + '/upload'));
 const secret = bcrypt.genSaltSync(10);
 const jwtSecret = "efesfewfewfesfeserfrrfe";
 
@@ -39,18 +37,15 @@ app.get("/test", (req, res) => {
     res.json("test ok");
 });
 
-
-function getUserDataFromToken(req){
-    return new Promise((resolve,reject)=>{
-        const {token}=req.cookies;
-    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
-        if(err) throw err;
-        resolve(userData);
-    });
+function getUserDataFromToken(req) {
+    return new Promise((resolve, reject) => {
+        const { token } = req.cookies;
+        jwt.verify(token, jwtSecret, {}, (err, userData) => {
+            if (err) throw err;
+            resolve(userData);
+        });
     });
 }
-
-
 
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
@@ -90,19 +85,15 @@ app.post("/login", async (req, res) => {
 
 app.get("/profile", (req, res) => {
     const { token } = req.cookies;
-    console.log("Token received:", token);
     if (token) {
         jwt.verify(token, jwtSecret, {}, (err, user) => {
             if (err) {
-                console.error("JWT Verify Error:", err);
                 res.status(403).json("Invalid token");
             } else {
-                console.log("User verified:", user);
                 res.json(user);
             }
         });
     } else {
-        console.log("No token provided");
         res.status(401).json("No token provided");
     }
 });
@@ -113,7 +104,7 @@ app.post("/logout", (req, res) => {
 
 app.post("/upload-by-link", async (req, res) => {
     const { link } = req.body;
-    const newName = 'photo'+Date.now() + '.jpg';
+    const newName = 'photo' + Date.now() + '.jpg';
     try {
         await imageDownloader.image({
             url: link,
@@ -126,19 +117,17 @@ app.post("/upload-by-link", async (req, res) => {
     }
 });
 
-const photosMiddleware=multer({dest:'upload/'});
-app.post('/upload',photosMiddleware.array('photos',100),(req,res)=>{
-    console.log("******FILE*********",req.files);
-    const uploadedFiles=[];
-    for(let i=0;i<req.files.length;i++){
-        const {path,originalname}=req.files[i];
-        const parts=originalname.split('.');
-        const ext=parts[parts.length-1];
-        const newPath=path+'.'+ext;
-        fs.renameSync(path,newPath);
-        uploadedFiles.push(newPath.replace('upload\\',''));
+const photosMiddleware = multer({ dest: 'upload/' });
+app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
+    const uploadedFiles = [];
+    for (let i = 0; i < req.files.length; i++) {
+        const { path, originalname } = req.files[i];
+        const parts = originalname.split('.');
+        const ext = parts[parts.length - 1];
+        const newPath = path + '.' + ext;
+        fs.renameSync(path, newPath);
+        uploadedFiles.push(newPath.replace('upload\\', ''));
     }
-    console.log(uploadedFiles);
     res.json(uploadedFiles);
 });
 
@@ -163,14 +152,13 @@ app.post("/places", (req, res) => {
         name,
     } = req.body;
 
-    console.log("reviews:",reviews);
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
     const checkOutNumber = Number(checkOut);
-    const maxGuestNumber=Number(maxGuests);
-    const priceNumber=Number(price);
+    const maxGuestNumber = Number(maxGuests);
+    const priceNumber = Number(price);
 
-    if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber) || isNaN(priceNumber)){
+    if (isNaN(checkInNumber) || isNaN(checkOutNumber) || isNaN(maxGuestNumber) || isNaN(priceNumber)) {
         return res.status(400).json({ error: "checkIn, checkOut and maxGuest must be numbers" });
     }
 
@@ -184,7 +172,7 @@ app.post("/places", (req, res) => {
                     owner: user.id,
                     title,
                     address,
-                    photos:addedPhotoes,
+                    photos: addedPhotoes,
                     photoLink,
                     description,
                     perks,
@@ -192,7 +180,7 @@ app.post("/places", (req, res) => {
                     checkIn: checkInNumber,
                     checkOut: checkOutNumber,
                     maxGuests: maxGuestNumber,
-                    price:priceNumber,
+                    price: priceNumber,
                     rate,
                     reviews,
                     X,
@@ -208,23 +196,22 @@ app.post("/places", (req, res) => {
     });
 });
 
-app.get('/user-places',(req,res)=>{
-    const {token}=req.cookies;
-    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
-        const {id}=userData;
-        res.json(await Place.find({owner:id}));
+app.get('/user-places', (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        const { id } = userData;
+        res.json(await Place.find({ owner: id }));
     });
 });
 
-app.get('/places/:id',async(req,res)=>{
-    const {id}=req.params;
+app.get('/places/:id', async (req, res) => {
+    const { id } = req.params;
     res.json(await Place.findById(id));
-    
 });
 
-app.put('/places',async(req,res)=>{
-    const {token}=req.cookies;
-    const{
+app.put('/places', async (req, res) => {
+    const { token } = req.cookies;
+    const {
         id,
         title,
         address,
@@ -242,28 +229,28 @@ app.put('/places',async(req,res)=>{
         X,
         Y,
         name,
-    }=req.body;
+    } = req.body;
     // Ensure checkIn and checkOut are numbers
     const checkInNumber = Number(checkIn);
     const checkOutNumber = Number(checkOut);
-    const maxGuestNumber=Number(maxGuests);
-    const priceNumber=Number(price);
-    jwt.verify(token,jwtSecret,{},async(err,userData)=>{
-        if(err) throw err;
-        const placeDoc=await Place.findById(id);
-        if(userData.id===placeDoc.owner.toString()){
+    const maxGuestNumber = Number(maxGuests);
+    const priceNumber = Number(price);
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) throw err;
+        const placeDoc = await Place.findById(id);
+        if (userData.id === placeDoc.owner.toString()) {
             placeDoc.set({
                 title,
                 address,
-                photos:addedPhotoes,
+                photos: addedPhotoes,
                 photoLink,
                 description,
                 perks,
                 extraInfo,
-                checkIn:checkInNumber,
-                checkOut:checkOutNumber,
-                maxGuests:maxGuestNumber,
-                price:priceNumber,
+                checkIn: checkInNumber,
+                checkOut: checkOutNumber,
+                maxGuests: maxGuestNumber,
+                price: priceNumber,
                 rate,
                 reviews,
                 X,
@@ -276,16 +263,15 @@ app.put('/places',async(req,res)=>{
     });
 });
 
-app.get('/places', async (req,res)=>{
+app.get('/places', async (req, res) => {
     res.json(await Place.find());
 });
 
 app.post('/booking', async (req, res) => {
-    const userData=await getUserDataFromToken(req);
+    const userData = await getUserDataFromToken(req);
     const { place, startDate, endDate, guests, name, mobile, price } = req.body;
 
     try {
-        // Assuming you've imported the BookingModel correctly
         const booking = await BookingModel.create({
             place,
             startDate,
@@ -294,25 +280,67 @@ app.post('/booking', async (req, res) => {
             name,
             mobile,
             price,
-            user:userData.id,
+            user: userData.id,
         });
 
-        // Successfully created the booking; send the response
         res.json(booking);
     } catch (err) {
-        // Handle any errors (e.g., validation failure, database issue)
         console.error('Error creating booking:', err);
         res.status(500).json({ error: 'An error occurred while creating the booking.' });
     }
 });
-
-
 
 app.get('/booking', async (req, res) => {
     const userData = await getUserDataFromToken(req);
     res.json(await BookingModel.find({ user: userData.id }).populate('place'));
 });
 
+// Add to wishlist
+app.post('/wishlist', async (req, res) => {
+    const userData = await getUserDataFromToken(req);
+    const { placeId } = req.body;
+
+    try {
+        const wishlistItem = await Wishlist.create({
+            userId: userData.id,
+            place: placeId,
+        });
+        res.json(wishlistItem);
+    } catch (err) {
+        console.error('Error adding to wishlist:', err);
+        res.status(500).json({ error: 'An error occurred while adding to the wishlist.' });
+    }
+});
+
+// Get wishlist items for a user
+app.get('/wishlist', async (req, res) => {
+    const userData = await getUserDataFromToken(req);
+    try {
+        const wishlistItems = await Wishlist.find({ userId: userData.id }).populate('place');
+        res.json(wishlistItems);
+    } catch (err) {
+        console.error('Error fetching wishlist:', err);
+        res.status(500).json({ error: 'An error occurred while fetching the wishlist.' });
+    }
+});
+
+// Remove from wishlist
+app.delete('/wishlist/:id', async (req, res) => {
+    const userData = await getUserDataFromToken(req);
+    const { id } = req.params;
+
+    try {
+        const result = await Wishlist.findOneAndDelete({ _id: id, userId: userData.id });
+        if (result) {
+            res.json({ message: 'Removed from wishlist' });
+        } else {
+            res.status(404).json({ error: 'Wishlist item not found' });
+        }
+    } catch (err) {
+        console.error('Error removing from wishlist:', err);
+        res.status(500).json({ error: 'An error occurred while removing from the wishlist.' });
+    }
+});
 
 app.listen(4000, () => {
     console.log("Server started on port 4000");
