@@ -6,6 +6,9 @@ const wishlistSchema = new mongoose.Schema({
   place: { type: mongoose.Schema.Types.ObjectId, ref: 'Place', required: true },
 }, { timestamps: true });
 
+// Create a unique compound index on userId and place
+wishlistSchema.index({ userId: 1, place: 1 }, { unique: true });
+
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
 
 export default Wishlist;

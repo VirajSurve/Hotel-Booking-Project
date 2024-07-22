@@ -14,6 +14,7 @@ import Place from "./Models/place.js";
 import BookingModel from "./Models/booking.js";
 import Wishlist from "./Models/Wishlist.js";
 
+
 // Function to get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -326,23 +327,60 @@ app.post('/wishlist', async (req, res) => {
     }
   });
   
-  // Remove from wishlist
-  app.delete('/wishlist/:id', async (req, res) => {
+// Remove from wishlist
+
+app.delete('/wishlist/:id', async (req, res) => {
     const userData = await getUserDataFromToken(req);
     const { id } = req.params;
-  
+    console.log("User ID from token:", userData.id);
+    console.log("Wishlist item ID:", id);
+
     try {
-      const result = await Wishlist.findOneAndDelete({ _id: id, userId: userData.id });
-      if (result) {
-        res.json({ message: 'Removed from wishlist' });
-      } else {
-        res.status(404).json({ error: 'Wishlist item not found' });
-      }
+        const objectId = new mongoose.Types.ObjectId(id); // Use 'new' keyword to instantiate ObjectId
+        const item = await Wishlist.findOne({ _id: objectId });
+        console.log("Item found:", item);
+
+        if (item) {
+            console.log("Item userId:", item.userId);
+            console.log("User ID from token:", userData.id);
+
+            if (item.userId.toString() === userData.id.toString()) { // Ensure both IDs are strings for comparison
+                await Wishlist.findOneAndDelete({ _id: objectId });
+                res.json({ message: 'Removed from wishlist' });
+                console.log("***Deleted item***");
+            } else {
+                console.log("Not authorized to delete this item");
+                res.status(403).json({ error: 'Not authorized to delete this item' });
+            }
+        } else {
+            console.log("Wishlist item not found");
+            res.status(404).json({ error: 'Wishlist item not found' });
+        }
     } catch (err) {
-      console.error('Error removing from wishlist:', err);
-      res.status(500).json({ error: 'An error occurred while removing from the wishlist.' });
+        console.error('Error removing from wishlist:', err);
+        res.status(500).json({ error: 'An error occurred while removing from the wishlist.' });
     }
-  });
+});
+
+// Check if a place exists in the wishlist
+app.get('/wishlist/exists', async (req, res) => {
+    const userData = await getUserDataFromToken(req);
+    const { placeId } = req.query;
+
+    try {
+        const item = await Wishlist.findOne({ userId: userData.id, place: placeId }).populate('place');
+        if (item) {
+            res.status(200).json({ exists: true, item });
+        } else {
+            res.status(200).json({ exists: false });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+  
+  
   
 app.listen(4000, () => {
     console.log("Server started on port 4000");
