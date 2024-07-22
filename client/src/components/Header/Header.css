@@ -14,7 +14,21 @@
 .parent-container1 {
   display: flex;
   justify-content: center;
-  
+}
+
+.circle-icon {
+  width: 33px;
+  height: 33px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Vertically centers the paragraph */
+  justify-content: center; /* Horizontally centers the paragraph */
+}
+
+.first-latter {
+  color: #ffffff;
+  font-size: 13px;
 }
 
 .wow {
@@ -24,25 +38,19 @@
   justify-content: space-between;
 }
 
-.now{
+.now {
   width: 800px;
   height: 65px;
-  box-shadow: 
-  0 4px 8px rgba(0, 0, 0, 0.1), 
-  0 -4px 8px rgba(0, 0, 0, 0.1), /* Top shadow */
-  0 2px 4px rgba(0, 0, 0, 0.06), 
-  0 -2px 0px rgba(0, 0, 0, 0.06);
+
   display: flex;
   gap: 2;
   border: 1px solid #d1d5db;
   border-radius: 9999px; /* full-rounded */
-  padding: 8px 16px; 
+  padding: 8px 16px;
   justify-content: space-between;
-   
 }
 
-
-.header{
+.header {
   margin-left: 70px;
   margin-right: 70px;
 }
@@ -85,14 +93,27 @@
 }
 
 .fade-in-out {
-    animation: fadeInOut 3s linear infinite;
-  }
-  
-  @keyframes fadeInOut {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
+  animation: fadeInOut 3s linear infinite;
+}
 
- 
-  
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.timepass {
+  /* flex gap-10 text-base mt-2 font-semibold fixed */
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+  font-weight: 500;
+  position: absolute;
+  left: 43%;
+}
