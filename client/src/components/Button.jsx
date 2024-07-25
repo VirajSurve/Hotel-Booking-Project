@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 import axios from 'axios';
 import { useWishlist } from "../WishlistContext";
+import { useNavigate,Navigate } from "react-router-dom";
 
 function Button({ place }) {
   const [color, setColor] = useState("white");
   const { addItem, items, removeItem } = useCart();
   const { wishlistItems, setWishlistItems } = useWishlist();
+  const navigate=useNavigate();
 
   useEffect(() => {
     const checkIfInWishlist = async () => {
@@ -32,7 +34,12 @@ function Button({ place }) {
       const response = await axios.get('http://localhost:4000/wishlist/exists', {
         params: { placeId: place._id }
       });
-      const itemInWishlist = response.data.exists ? response.data.item : null;
+      if(response.data==null){
+        alert("Please Login!");
+        navigate("/login");
+      }
+      console.log("Button Clicked: ",response);
+      const itemInWishlist = response.data.exists ? response.data.item :null;
 
       if (itemInWishlist) {
         // Remove from wishlist

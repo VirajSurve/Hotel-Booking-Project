@@ -38,15 +38,19 @@ app.get("/test", (req, res) => {
     res.json("test ok");
 });
 
-function getUserDataFromToken(req) {
+async function getUserDataFromToken(req) {
+    const { token } = req.cookies;
+    if (!token) {
+        return null; // Return null if no token is provided
+    }
     return new Promise((resolve, reject) => {
-        const { token } = req.cookies;
-        jwt.verify(token, jwtSecret, {}, (err, userData) => {
-            if (err) throw err;
+        jwt.verify(token, jwtSecret, (err, userData) => {
+            if (err) return reject(err);
             resolve(userData);
         });
     });
 }
+
 
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
@@ -375,13 +379,10 @@ app.get('/wishlist/exists', async (req, res) => {
             res.status(200).json({ exists: false });
         }
     } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.json(null);
     }
 });
 
-  
-  
-  
 app.listen(4000, () => {
     console.log("Server started on port 4000");
 });
