@@ -3,6 +3,7 @@ import insta from "../../public/Icons/icons8-insta-48.png";
 import fb from "../../public/Icons/icons8-facebook-48.png";
 import twitter from "../../public/Icons/icons8-twitter-48.png";
 import linkedin from "../../public/Icons/icons8-linkedin-48.png";
+
 const Footer=()=>{
  return(
   <div className="footer">

@@ -8,49 +8,61 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 
-function IndexPage(){
-    const [places,setPlaces]=useState([]);
-    useEffect(()=>{
-        axios.get("http://localhost:4000/places").then(response=>{
-            setPlaces([...response.data]);
-        });
-    },[]);
-    
-    return(
-        <>
-        <CartProvider>
+function IndexPage() {
+  const [places, setPlaces] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/places").then((response) => {
+      setPlaces([...response.data]);
+    });
+  }, []);
+
+  return (
+    <>
+      <CartProvider>
         <Nav />
         <div className="mt-4 gap-x-8 gap-y-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {places.length > 0 && places.map(place => (
-            <div className="container" key={place._id}>
-                <div className="heart"><Button place={place}/></div>
+          {places.length > 0 &&
+            places.map((place) => (
+              <div className="container" key={place._id}>
+                <div className="heart">
+                  <Button place={place} />
+                </div>
                 <div className="">
-                    <Link to={'/place/' + place._id} key={place._id} >
+                  <Link to={"/place/" + place._id} key={place._id}>
                     <div className="mb-2">
-                    {place.photos?.[0] && (
+                      {place.photos?.[0] && (
                         <div>
-                        <img className=" relative box-img" src={'http://localhost:4000/upload/'+place.photos?.[0]} alt="" />
-                        <div className=" bi bi-star-fill absolute bottom-5 right-3">
-                        hi
+                          <img
+                            className=" relative box-img"
+                            src={
+                              "http://localhost:4000/upload/" +
+                              place.photos?.[0]
+                            }
+                            alt=""
+                          />
+                          <div className=" bi bi-star-fill absolute bottom-5 right-3">
+                            hi
+                          </div>
                         </div>
-                        </div>
-                    )}
+                      )}
                     </div>
-                    </Link>
-                    <h2 className="font-bold leading-5">{place.address}</h2>
-                    <h3 className="place text-sm truncate text-gray-500">{place.title}</h3>
-                    
+                  </Link>
+                  <h2 className="font-bold leading-5">{place.address}</h2>
+                  <h3 className="place text-sm truncate text-gray-500">
+                    {place.title}
+                  </h3>
                 </div>
                 <p className="side">{}</p>
                 <p className="price mt-1">
-                   <span className="font-bold"> ${place.price} </span><span id="period">night</span>
+                  <span className="font-bold"> ${place.price} </span>
+                  <span id="period">night</span>
                 </p>
-               </div> 
+              </div>
             ))}
         </div>
-        </CartProvider>   
-        </>
-    );
+      </CartProvider>
+    </>
+  );
 }
 
 export default IndexPage;
