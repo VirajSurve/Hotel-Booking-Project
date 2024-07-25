@@ -11,7 +11,18 @@ import ice from "./icons/ice.png";
 import TV from "./icons/TV.png";
 import balcony from "./icons/balcony.png";
 import cctv from "./icons/cctv.png";
-
+import beach from "./icons/beach.png";
+import windmill from "./icons/windmill.png";
+import modern from "./icons/modern.png";
+import outside from "./icons/outside.png";
+import island from "./icons/island.png";
+import lake from "./icons/lake.png";
+import skiing from "./icons/skiing.png";
+import castles from "./icons/castles.png";
+import caves from "./icons/caves.png";
+import camping from "./icons/camping.png";
+import arctic from "./icons/arctic.png";
+import desert from "./icons/desert.png";
 
 export default function Perks({selected,onChange}){
 
@@ -73,9 +84,9 @@ export default function Perks({selected,onChange}){
                         <span>Private hot tub</span>
                     </label>
                     <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                        <input type="checkbox" checked={selected.includes("Private outdoor pool")} name="Private outdoor pool" onClick={handelCBClick}></input>
+                        <input type="checkbox" checked={selected.includes("Pool")} name="Pool" onClick={handelCBClick}></input>
                         <img className="size-7" src={pool}></img>
-                        <span>Private outdoor pool</span>
+                        <span>Pool</span>
                     </label>
                     <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
                         <input type="checkbox" checked={selected.includes("AC – split-type system")} name="AC – split-type system" onClick={handelCBClick}></input>
@@ -106,6 +117,61 @@ export default function Perks({selected,onChange}){
                         <input type="checkbox" checked={selected.includes("Exterior security")} name="Exterior security" onClick={handelCBClick}></input>
                         <img className="size-7" src={cctv}></img>
                         <span>Exterior security</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Beach")} name="Beach" onClick={handelCBClick}></input>
+                        <img className="size-7" src={beach}></img>
+                        <span>Beach</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Windmill")} name="Windmill" onClick={handelCBClick}></input>
+                        <img className="size-7" src={windmill}></img>
+                        <span>Windmill</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Modern")} name="Modern" onClick={handelCBClick}></input>
+                        <img className="size-7" src={modern}></img>
+                        <span>Modern</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Outside")} name="Outside" onClick={handelCBClick}></input>
+                        <img className="size-7" src={outside}></img>
+                        <span>Outside</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Island")} name="Island" onClick={handelCBClick}></input>
+                        <img className="size-7" src={island}></img>
+                        <span>Island</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Lake")} name="Lake" onClick={handelCBClick}></input>
+                        <img className="size-7" src={lake}></img>
+                        <span>Lake</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Skiing")} name="Skiing" onClick={handelCBClick}></input>
+                        <img className="size-7" src={skiing}></img>
+                        <span>Skiing</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Castles")} name="Castles" onClick={handelCBClick}></input>
+                        <img className="size-7" src={castles}></img>
+                        <span>Castles</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Camping")} name="Camping" onClick={handelCBClick}></input>
+                        <img className="size-7" src={camping}></img>
+                        <span>Camping</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Arctic")} name="Arctic" onClick={handelCBClick}></input>
+                        <img className="size-7" src={arctic}></img>
+                        <span>Arctic</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Desert")} name="Desert" onClick={handelCBClick}></input>
+                        <img className="size-7" src={desert}></img>
+                        <span>Desert</span>
                     </label>
 
         </>

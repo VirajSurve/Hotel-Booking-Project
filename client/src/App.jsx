@@ -10,6 +10,7 @@ import PlacesFormPage from "./components/Pages/PlacesFormPage.jsx";
 import PlacePage from "./components/Pages/PlacePage.jsx";
 import WishlistPage from "./components/WishlistPage.jsx";
 import { WishlistProvider } from "./WishlistContext.jsx";
+import BeachPage from "./components/Pages/SortingPages/Beach.jsx";
 
 axios.defaults.withCredentials = true;
 
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<IndexPage />} />
+            <Route path="/:category" element={<IndexPage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<LoginPage />} />
             <Route path="account/:subpage?" element={<ProfilePage />} />
@@ -28,6 +30,7 @@ function App() {
             <Route path="account/places/new" element={<PlacesFormPage />} />
             <Route path="account/places/:id" element={<PlacesFormPage />} />
             <Route path="place/:id" element={<PlacePage />} />
+            {/* <Route path="/beach" element={<BeachPage />} /> */}
           </Route>
         </Routes>
       </WishlistProvider>

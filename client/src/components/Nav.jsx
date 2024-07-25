@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Nav.css";
 import React , {useState} from "react";
 function Nav() {
@@ -13,7 +14,7 @@ function Nav() {
   return (
     
     <div className="wrapper" >
-	  <div className="p-2">
+	  <Link to="/Beach" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("beach")}}>
 
 	  <svg fill={activeButton === 'beach' ? colour : "#606060"} width="30px" height="30px" viewBox="0 0 512 512" enableBackground="new 0 0 512 512" id="chair_x5F_umbrella" version="1.1" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -50,8 +51,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "beach" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Windmill" className="p-2">
 	  <button className="icon-button"  onClick={() => {HandleClick("windmill")}}>
 
 	  <svg fill={activeButton === "windmill" ? colour : "#606060"} width="30px" height="30px" viewBox="0 0 15 15" version="1.1" id="windmill" xmlns="http://www.w3.org/2000/svg">
@@ -61,8 +62,8 @@ function Nav() {
 		<div className="underline" ></div>
 		{activeButton === "windmill" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Modern"  className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("modern")}}>
 
 	  <svg fill={activeButton === "modern" ? colour : "#606060"} width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.372,5.071l-10-4A1,1,0,0,0,11,2V6H2A1,1,0,0,0,1,7V22a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V6A1,1,0,0,0,22.372,5.071ZM3,8h8V21H3ZM13,21V3.477l8,3.2V8H15v2h6v2H15v2h6v2H15v2h6v3ZM7,12h3v2H7ZM4,12H6v2H4ZM7,9h3v2H7ZM4,9H6v2H4Zm3,6h3v2H7ZM4,15H6v2H4Zm3,3h3v2H7ZM4,18H6v2H4Z"/></svg>
@@ -70,8 +71,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "modern" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Outside" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("outside")}}>
 
 	  <svg width="30px" height="30px" viewBox="0 0 24 24" fill={activeButton === "outside" ? colour : "#808080"} xmlns="http://www.w3.org/2000/svg">
@@ -83,8 +84,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "outside" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Pool" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("pool")}}>
 
 	  <svg fill={activeButton === "pool" ? colour : "#606060"} width="30px" height="30px" viewBox="0 0 15 15" version="1.1" id="swimming" xmlns="http://www.w3.org/2000/svg">
@@ -94,8 +95,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "pool" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Island" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("island")}}>
 
 	  <svg fill={activeButton === "island" ? colour : "#606060"} height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -124,8 +125,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "island" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Lake" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("lake")}}>
 
 	  <svg fill={activeButton === "lake" ? colour : "#606060"} height="30px" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 309.906 309.906" xmlnsXlink="http://www.w3.org/1999/xlink" enableBackground="new 0 0 309.906 309.906">
@@ -144,8 +145,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "lake" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Skiing" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("skiing")}}>
 
 	  <svg width="30px" height="30px" viewBox="0 0 24 24" fill={activeButton === "skiing" ? colour : "#606060"} xmlns="http://www.w3.org/2000/svg">
@@ -157,8 +158,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "skiing" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Castles" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("castles")}}>
 
 	  <svg fill={activeButton === "castles" ? colour : "#606060"} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -183,8 +184,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "castles" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Caves" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("caves")}}>
 
 	  <svg width="30px" height="30px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -195,8 +196,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "caves" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Camping" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("camping")}}>
 
 	  <svg width="30px" height="30px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -207,8 +208,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "camping" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Arctic" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("Arctic")}}>
 
 	  <svg fill={activeButton === "Arctic" ? colour : "#606060"} height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -237,8 +238,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "Arctic" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Desert" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("desert")}} >
 
 	  <svg fill={activeButton === "desert" ? colour : "#606060"} width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18,2a4,4,0,1,0,4,4A4,4,0,0,0,18,2Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,18,8ZM15,20H13V18a1,1,0,0,0-2,0v2H9V16.62l3.45-1.73A1,1,0,0,0,13,14V10a1,1,0,0,0-2,0v3.38l-2,1V8A1,1,0,0,0,7,8v8.38l-2-1V13a1,1,0,0,0-2,0v3a1,1,0,0,0,.55.89L7,18.62V20H3a1,1,0,0,0,0,2H15a1,1,0,0,0,0-2Z"/></svg>
@@ -246,8 +247,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "desert" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Bams" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("barns")}}>
 
 	  <svg fill={activeButton === "barns" ? colour : "#606060"} height="30px" width="30px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -267,8 +268,8 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "barns" && <div className="underline1"></div>}
 		</button>
-      </div>
-	  <div className="p-2">
+      </Link>
+	  <Link to="/Luxurious" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("Luxurious")}}>
 
 	  <svg width="30px" height="30px" viewBox="0 0 24 24" fill={activeButton === "Luxurious" ? colour : "#606060"} xmlns="http://www.w3.org/2000/svg">
@@ -279,7 +280,7 @@ function Nav() {
 		<div className="underline"></div>
 		{activeButton === "Luxurious" && <div className="underline1"></div>}
 		</button>
-      </div>
+      </Link>
     </div>
   );
 }

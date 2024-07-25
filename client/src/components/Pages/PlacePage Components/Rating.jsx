@@ -48,7 +48,7 @@ export default function Rating({place}) {
       </div>
       <hr />
       <Hotel/>
-      <Features/>
+      <Features place={place}/>
     </div>
 
     

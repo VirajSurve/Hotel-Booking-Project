@@ -1,33 +1,25 @@
-import Nav from "../Nav";
+import Nav from "../../Nav";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../Button.jsx";
-import "../../App.css";
-import { Link, useParams } from "react-router-dom";
+import Button from "../../Button.jsx";
+import "../../../App.css";
+import { Link } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 
-function IndexPage() {
+function WindmillPage() {
   const [places, setPlaces] = useState([]);
-  const {category}=useParams();
 
   useEffect(() => {
-    if(category){
-      axios.get("http://localhost:4000/places").then((response) => {
-        //   console.log("Data:", response.data);
-          // Filter places based on the perk
-          const refined = response.data.filter((item) =>
-            item.perks.includes(category)
-          );
-        //   console.log("Refined data:", refined);
-          setPlaces(refined);
-        });
-    }else{
-      axios.get("http://localhost:4000/places").then((response) => {
-        setPlaces([...response.data]);
-      });
-    }
-    
-  }, [category]);
+    axios.get("http://localhost:4000/places").then((response) => {
+    //   console.log("Data:", response.data);
+      // Filter places based on the perk
+      const refined = response.data.filter((item) =>
+        item.perks.includes("Windmill")
+      );
+    //   console.log("Refined data:", refined);
+      setPlaces(refined);
+    });
+  }, []);
 
   return (
     <>
@@ -46,14 +38,14 @@ function IndexPage() {
                       {place.photos?.[0] && (
                         <div>
                           <img
-                            className=" relative box-img"
+                            className="relative box-img"
                             src={
                               "http://localhost:4000/upload/" +
-                              place.photos?.[0]
+                              place.photos[0]
                             }
                             alt=""
                           />
-                          <div className=" bi bi-star-fill absolute bottom-3 right-5">
+                          <div className="bi bi-star-fill absolute bottom-3 right-5">
                             {place.rate}
                           </div>
                         </div>
@@ -78,4 +70,4 @@ function IndexPage() {
   );
 }
 
-export default IndexPage;
+export default WindmillPage;

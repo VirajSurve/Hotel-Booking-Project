@@ -1,37 +1,30 @@
 import React, { useContext, useEffect } from 'react';
 import Container2 from './Container2';
 import { UserContext } from '../../../UserContext';
-import { first_icons,second_icons } from './icons';
+import { icons } from './icons';
 
-export default function Features() {
-  const { icon1, setIcon1 } = useContext(UserContext);
-  const {icon2,setIcon2} = useContext(UserContext);
+export default function Features({ place }) {
+  const { icon, setIcon } = useContext(UserContext);
 
-  useEffect(() => {
-    // If icon1 is empty, initialize it with first_icons
-    if (icon1.length === 0) {
-      setIcon1(first_icons);
-    }
-  }, [icon1, setIcon1]);
 
   useEffect(() => {
-    // If icon1 is empty, initialize it with first_icons
-    if (icon2.length === 0) {
-      setIcon2(second_icons);
+    if (place && place.perks) {
+      const newIcon = icons.filter(icon =>
+        place.perks.includes(icon.view)
+      ); 
+      setIcon(newIcon);
+
     }
-  }, [icon2, setIcon2]);
+  }, [place, setIcon]);
 
   return (
     <div className='do'>
+    {place.perks.length>0 &&
       <h1 className='offer'>What this place offers</h1>
+    }
       <div className='col'>
         <div className='col1'>
-          {icon1.map((f_i) => (
-            <Container2 key={f_i.key} img={f_i.img} mean={f_i.view} />
-          ))}
-        </div>
-        <div className='col2'>
-          {icon2.map((f_i) => (
+          {icon.map((f_i) => (
             <Container2 key={f_i.key} img={f_i.img} mean={f_i.view} />
           ))}
         </div>
