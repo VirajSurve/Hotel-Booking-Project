@@ -23,6 +23,8 @@ import caves from "./icons/caves.png";
 import camping from "./icons/camping.png";
 import arctic from "./icons/arctic.png";
 import desert from "./icons/desert.png";
+import barns from "./icons/barns.png";
+import lux from "./icons/Lux.png";
 
 export default function Perks({selected,onChange}){
 
@@ -172,6 +174,16 @@ export default function Perks({selected,onChange}){
                         <input type="checkbox" checked={selected.includes("Desert")} name="Desert" onClick={handelCBClick}></input>
                         <img className="size-7" src={desert}></img>
                         <span>Desert</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Barns")} name="Barns" onClick={handelCBClick}></input>
+                        <img className="size-7" src={barns}></img>
+                        <span>Barns</span>
+                    </label>
+                    <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+                        <input type="checkbox" checked={selected.includes("Luxurious")} name="Luxurious" onClick={handelCBClick}></input>
+                        <img className="size-7" src={lux}></img>
+                        <span>Luxurious</span>
                     </label>
 
         </>

@@ -248,7 +248,7 @@ function Nav() {
 		{activeButton === "desert" && <div className="underline1"></div>}
 		</button>
       </Link>
-	  <Link to="/Bams" className="p-2">
+	  <Link to="/Barns" className="p-2">
 	  <button className="icon-button" onClick={() => {HandleClick("barns")}}>
 
 	  <svg fill={activeButton === "barns" ? colour : "#606060"} height="30px" width="30px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
