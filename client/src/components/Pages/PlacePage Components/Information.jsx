@@ -36,19 +36,20 @@ export default function Information({ place }) {
         return date ? format(date, 'yyyy-MM-dd') : '';
     };
 
-    async function handleBooking(){
-        const response=await axios.post("http://localhost:4000/booking",{
-            place:place._id,
+    async function handleBooking() {
+        const response = await axios.post("http://localhost:4000/booking", {
+            place: place._id,
             startDate,
             endDate,
             guests,
             name,
             mobile,
-            price:numberOfNights*place.price,
+            price: numberOfNights * place.price,
         });
-        const bookingId=response.data._id;
+        const bookingId = response.data._id;
         setRedirect(`/account/bookings/${bookingId}`);
     }
+    
 
     if(redirect){
         return <Navigate to={redirect}></Navigate>
@@ -109,14 +110,15 @@ export default function Information({ place }) {
                             />
                             </div>
                             <div className='px-4 py-4 border-t'>
-                            <label>Mobile:</label>
-                            <input 
-                                className='bg-gray-200 rounded-full py-1 px-2 w-full border my-1' 
-                                type='tel' 
-                                value={mobile} 
-                                onChange={e => setMobile(e.target.value)}
-                            />
+                                <label>Mobile:</label>
+                                <input 
+                                    className='bg-gray-200 rounded-full py-1 px-2 w-full border my-1' 
+                                    type='tel' 
+                                    value={mobile} 
+                                    onChange={e => setMobile(e.target.value)}
+                                />
                             </div>
+
                             </div>
                         )}
                     </div>

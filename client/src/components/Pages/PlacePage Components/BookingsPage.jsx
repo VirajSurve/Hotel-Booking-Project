@@ -16,7 +16,7 @@ export default function BookingsPage(){
           <AccountNav />
           <div>
             {bookings.length>0 && bookings.map(booking=>(
-                <div>
+                <div key={booking._id}>
                     {booking.place.photos.length > 0 && (
                         <img className="object-cover rounded-2xl" src={'http://localhost:4000/upload/'+booking.place.photos[0]} alt="" />
                     )}

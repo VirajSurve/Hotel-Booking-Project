@@ -22,8 +22,8 @@ export default function Features({ place }) {
     {place.perks.length>0 &&
       <h1 className='offer'>What this place offers</h1>
     }
-      <div className='col'>
-        <div className='col1'>
+      <div className='col '>
+        <div className='col1 grid gird-cols-2 md:grid-cols-3 lg:grid-cols-4'>
           {icon.map((f_i) => (
             <Container2 key={f_i.key} img={f_i.img} mean={f_i.view} />
           ))}
