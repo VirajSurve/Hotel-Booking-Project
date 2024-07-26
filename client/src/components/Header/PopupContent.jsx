@@ -33,31 +33,34 @@ function PopupContent({ close }) {
   }
 
   return (
-    <div className="modal" onClick={() => close()}>
-      <div className="content">
-        <Link to="/account">
-          <p className="font-medium">My Profile</p>
-        </Link>
-        <Link to="/account/bookings">
-          <p className="font-medium">My Booking</p>
-        </Link>
-        <Link to="/account/places">
-          <p className="font-medium">My Accomodation</p>
-        </Link>
-        <Link to="/wishlist">
-          <p className="wishlist font-medium ">Wishlist</p>
-        </Link>
+    <>
+      <div className="anyq" onClick={close}></div>
+      <div className="modal" onClick={() => close()}>
+        <div className="content">
+          <Link to="/account">
+            <p className="font-medium">My Profile</p>
+          </Link>
+          <Link to="/account/bookings">
+            <p className="font-medium">My Booking</p>
+          </Link>
+          <Link to="/account/places">
+            <p className="font-medium">My Accomodation</p>
+          </Link>
+          <Link to="/wishlist">
+            <p className="wishlist font-medium ">Wishlist</p>
+          </Link>
 
-        <hr />
-        <p>Help Center</p>
+          <hr />
+          <p>Help Center</p>
 
-        {subpage === "profile" && (
-          <p>
-            <button onClick={logout}>Logout</button>
-          </p>
-        )}
+          {subpage === "profile" && (
+            <p>
+              <button onClick={logout}>Logout</button>
+            </p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

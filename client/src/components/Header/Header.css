@@ -83,6 +83,23 @@
   transform: scale(1.02); /* Slightly enlarge on hover */
 }
 
+.head {
+  position: fixed;
+  width: 100%;
+  top: 0%;
+  z-index: 2;
+  background-color: white;
+  height: 160px;
+}
+
+.header-container {
+  transform-origin: top;
+}
+
+.header {
+  transition: transform 0.3s ease;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);
