@@ -4,7 +4,6 @@ import { UserContext } from "../../../UserContext";
 import "./Information.css";
 
 import {
-  differenceInBusinessDays,
   differenceInCalendarDays,
   format,
 } from "date-fns";
@@ -120,28 +119,24 @@ export default function Information({ place }) {
                 onChange={(e) => setGuests(e.target.value)}
               />
             </div>
-            {numberOfNights > 0 && (
-              <div>
-                <div className="px-4 py-4 border-t">
-                  <label>Name:</label>
-                  <input
-                    className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="px-4 py-4 border-t">
-                  <label>Mobile:</label>
-                  <input
-                    className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1"
-                    type="tel"
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
-                  />
-                </div>
-              </div>
-            )}
+            <div className="px-4 py-4 border-t">
+              <label>Name:</label>
+              <input
+                className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="px-4 py-4 border-t">
+              <label>Mobile:</label>
+              <input
+                className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1"
+                type="tel"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+            </div>
           </div>
           <button
             className="bg-primary rounded-2xl w-full mt-5"
