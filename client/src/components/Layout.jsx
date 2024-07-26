@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <>
       <div className="relative p-4 min-h-screen">
-        {/* <Header /> */}
+        <Header />
         <Outlet />
         <MainPageFooter />
       </div>

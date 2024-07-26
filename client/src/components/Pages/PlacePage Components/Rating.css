@@ -70,3 +70,8 @@
   font-size: 15px;
   color: grey;
 }
+
+#name {
+  font-weight: 500;
+  font-size: 17px;
+}
