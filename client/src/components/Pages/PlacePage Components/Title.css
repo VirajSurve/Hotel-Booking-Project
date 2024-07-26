@@ -1,0 +1,18 @@
+.front {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  margin: 20px;
+}
+
+.icon {
+  margin-left: 50px;
+}
+
+.right-side {
+  margin: 0px;
+}
+.title {
+  font-size: xx-large;
+}

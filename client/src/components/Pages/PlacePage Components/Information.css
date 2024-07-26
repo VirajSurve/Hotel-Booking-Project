@@ -1,0 +1,41 @@
+.type {
+  font-size: x-large;
+  margin-left: 32px;
+  margin-top: 20px;
+}
+
+.space {
+  margin-left: 33px;
+  font-size: 17px;
+}
+
+.chart {
+  height: 456px;
+  width: 382px;
+  margin: 50px 20px 0px 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid gainsboro;
+  position: sticky;
+  top: 50px; /* Adjust based on the desired sticky position */
+  left: 220px; /* Adjust based on the sidebar's width + some margin */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+#price {
+  font-size: larger;
+}

@@ -1,201 +1,42 @@
-.title{
-    font-size: xx-large;
-}
-
-.type{
-    font-size: x-large;
-    margin-left: 32px;
-    margin-top: 20px;
-}
-.recom{
-    font-weight: 400;
-}
-#G{
-    margin-left: 10px;
-}
-
-.guest{
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.space{
-    margin-left: 33px;
-    font-size: 17px;
-}
-
-.front{
-    display: flex;
-    justify-content:space-around;
-    gap: 20px;
-    align-items: center; 
-    margin: 20px;
-}
-
-.icon{
-    margin-left: 50px;
-}
-
-.right-side{
-    margin: 0px;
-}
-
-/* .chart {
-    height: 456px;
-    width: 382px;
-    margin: 50px 20px 0px 0px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid gainsboro;
-    position: sticky;
-} */
-
-.chart {
-    height: 456px;
-    width: 382px;
-    margin: 50px 20px 0px 0px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid gainsboro;
-    position: sticky;
-    top: 50px; /* Adjust based on the desired sticky position */
-    left: 220px; /* Adjust based on the sidebar's width + some margin */
-}
-
-
-.center {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;  
-    margin-bottom:50px;
-}
-
-.information {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-   
-}
-
-#price{
-    font-size: larger;
-}
-
 .rate-container {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+.inner {
+  font-size: 10px;
+  margin-right: 2px;
+  color: gold;
+}
+
+.line {
+  margin-top: 20px;
+}
+
+.Host {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#name,
+.p1,
+.p2,
+.p3 {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+#p1,
+#p2,
+#p3 {
+  font-weight: 400;
+  font-size: 15px;
+  color: grey;
+}
+
+@media (max-width: 700px) {
+  .right-side {
+    display: inline-flex;
   }
-
-#rate {
-    font-size: x-large;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-.inner{
-    font-size: 10px;
-    margin-right:2px;
-    color: gold;
 }
-
-.line{
-    margin-top: 20px;
-}
-
-.move{
-    margin-left: 10px;
-}
-
-.stars{
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 650px;
-    height: 100px;
-    border: 1px solid gainsboro;
-    margin-left: 32px;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-}
-
-#Reviews{
-    margin-right: 20px;
-}
-
-.vertical-line {
-    width: 0.1px; /* Adjust thickness */
-    height: 45px; /* Adjust height */
-    background-color: gainsboro; /* Adjust color */
-    margin: 10px; /* Optional, for spacing */
-}
-
-.review-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center elements horizontally */
-}
-.review-text {
-    margin-right: 20px;
-    font-size: x-large;
-    font-weight: 600;
-}
-
-
-.stars:hover {
-    background-color: ghostwhite; /* background color on hover */
-  }
-
-
-.Host{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-#name , .p1 , .p2 , .p3{
-    font-weight: 500;
-    font-size: 17px;
-}
-
-#exp , #p1 , #p2 , #p3{
-    font-weight: 400;
-    font-size: 15px;
-    color: grey;
-}
-
-
-.owner-profile {
-    margin: 30px 0px 20px 30px; /* top, right, bottom, left */
-    display: flex;
-    gap: 25px;
-}
-
-.row1 , .row2 , .row3{
-    margin: 25px 0px 0px 40px;
-    display: flex;
-    gap: 25px;
-}
-
-.row3{
-    margin-bottom: 20px;
-}
-
-.bi-router , .bi-emoji-sunglasses , .bi-calendar4-event{
-    font-size: 25px;
-}
-
-
-
-@media (max-width: 700px){
-    .right-side{
-        display: inline-flex;
-
-    }
-}
-
-
-
-
