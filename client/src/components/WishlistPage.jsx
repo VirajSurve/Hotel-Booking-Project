@@ -71,8 +71,10 @@ function WishlistPage() {
                     alt={item.place.title}
                   />
                 </Link>
-                <h2>{item.place.title}</h2>
-                <button onClick={() => togglePopup2(item._id)}>Remove</button>
+                <h2 className="res">{item.place.title}</h2>
+                <button onClick={() => togglePopup2(item._id)} className="res">
+                  Remove
+                </button>
               </div>
             ))}
             {warning && (
