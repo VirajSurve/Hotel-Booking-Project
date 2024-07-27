@@ -1,26 +1,14 @@
 import React from "react";
-import { useCart } from "react-use-cart";
 import "./DeletePop.css";
 
-function DeletePop({ item, onClose }) {
-  const { removeItem } = useCart();
-
-  const handleRemove = () => {
-    removeItem(item.id);
-    onClose();
-  };
-
+function DeletePop({ itemId, onClose, onRemove }) {
   return (
     <div className="model-btn">
       <div className="flex-box ">
         <p className="text-xl font-semibold">Delete this wishlist?</p>
         <p className="text-gray-600">
-          " This hotel will be{" "}
-          <span>
-            {" "}
-            <br />
-            permanently deleted."
-          </span>
+          This hotel will be <br />
+          permanently deleted.
         </p>
       </div>
       <hr />
@@ -31,8 +19,8 @@ function DeletePop({ item, onClose }) {
           </button>
         </div>
 
-        <div className="yes-btn font-semibold ">
-          <button onClick={handleRemove}>Delete</button>
+        <div className="yes-btn font-semibold">
+          <button onClick={() => onRemove(itemId)}>Delete</button>
         </div>
       </div>
     </div>

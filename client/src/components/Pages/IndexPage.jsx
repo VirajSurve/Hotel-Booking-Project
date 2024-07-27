@@ -5,6 +5,7 @@ import "../../App.css";
 import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import "./IndexPage.css";
+import Header from "../Header/Header.jsx";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
@@ -29,47 +30,50 @@ function IndexPage() {
   }, [category]);
 
   return (
-    <div className="app-container">
-      <CartProvider>
-        <div className="each-card m-10">
-          {places.length > 0 &&
-            places.map((place) => (
-              <div className="container" key={place._id}>
-                <div className="heart">
-                  <Button place={place} />
-                </div>
-                <Link to={"/place/" + place._id} key={place._id}>
-                  {place.photos?.[0] && (
-                    <div className="mb-2">
-                      <img
-                        className="box-img"
-                        src={
-                          "http://localhost:4000/upload/" + place.photos?.[0]
-                        }
-                        alt=""
-                      />
-                      {/* <div className="bi bi-star-fill absolute bottom-5 right-3">
+    <>
+      <Header />
+      <div className="app-container">
+        <CartProvider>
+          <div className="each-card m-10">
+            {places.length > 0 &&
+              places.map((place) => (
+                <div className="container" key={place._id}>
+                  <div className="heart">
+                    <Button place={place} />
+                  </div>
+                  <Link to={"/place/" + place._id} key={place._id}>
+                    {place.photos?.[0] && (
+                      <div className="mb-2">
+                        <img
+                          className="box-img"
+                          src={
+                            "http://localhost:4000/upload/" + place.photos?.[0]
+                          }
+                          alt=""
+                        />
+                        {/* <div className="bi bi-star-fill absolute bottom-5 right-3">
                           hi
                         </div> */}
-                    </div>
-                  )}
-                </Link>
-                {/* <div className="varad">
+                      </div>
+                    )}
+                  </Link>
+                  {/* <div className="varad">
                     <h2 className="font-bold leading-5">{place.address}</h2>
                     <h3 className="place text-sm truncate text-gray-500">
                       {place.title}
                     </h3>
                   </div> */}
-                {/* <p className="side">{}</p>
+                  {/* <p className="side">{}</p>
                   <p className="price mt-1">
                     <span className="font-bold">${place.price}</span>
                     <span id="period">night</span>
                   </p> */}
-              </div>
-            ))}
-        </div>
-      </CartProvider>
-    </div>
+                </div>
+              ))}
+          </div>
+        </CartProvider>
+      </div>
+    </>
   );
 }
 

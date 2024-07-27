@@ -1,22 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useWishlist } from "../WishlistContext";
 import axios from "axios";
 import "./Wishlist.css";
 import { Link } from "react-router-dom";
 
+import WishlistHeader from "./Header/WishlistHeader.jsx";
+import DeletePop from "./DeletePop.jsx";
+
 function WishlistPage() {
   const { wishlistItems, setWishlistItems } = useWishlist();
-  // const [showDelete, setShowDelete] = useState(false);
+  const [warning, setWarning] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
 
-  // const handleRemoveClick = (item) => {
-  //   setCurrentItem(item);
-  //   setShowDelete(true);
-  // };
+  function togglePopup2(item) {
+    setCurrentItem(item);
+    setWarning(!warning);
+  }
 
-  // const handleCloseDelete = () => {
-  //   setShowDelete(false);
-  //   setCurrentItem(null);
-  // };
+  function closePopup2() {
+    setWarning(false);
+    setCurrentItem(null);
+  }
 
   useEffect(() => {
     axios
@@ -30,45 +34,58 @@ function WishlistPage() {
   }, [setWishlistItems]);
 
   const handleRemoveItem = (itemId) => {
-    try {
-      axios.delete(`http://localhost:4000/wishlist/${itemId}`);
-      setWishlistItems(wishlistItems.filter((item) => item._id !== itemId));
-    } catch {
-      console.error("Error removing wishlist item(wishlistpage):", err);
-    }
+    axios
+      .delete(`http://localhost:4000/wishlist/${itemId}`)
+      .then(() => {
+        setWishlistItems(wishlistItems.filter((item) => item._id !== itemId));
+        closePopup2();
+      })
+      .catch((err) => {
+        console.error("Error removing wishlist item(wishlistpage):", err);
+      });
   };
 
   if (wishlistItems.length === 0)
     return <h1 className="text-center">Your wishlist is empty</h1>;
 
   return (
-    <div>
-      <div className="mt-8 ml-28 mb-8 mr-0">
-        <h1 className="text-3xl font-semibold">
-          Wishlist ({wishlistItems.length})
-        </h1>
-      </div>
+    <>
+      <WishlistHeader />
+      <div>
+        <div className="mt-8 ml-28 mb-8 mr-0">
+          <h1 className="text-3xl font-semibold">
+            Wishlist ({wishlistItems.length})
+          </h1>
+        </div>
 
-      <div className="centerit">
-        <div className="container2">
-          {wishlistItems.map((item) => (
-            <div key={item._id}>
-              <Link to={`/place/${item.place._id}`}>
-                <img
-                  className="box-img2"
-                  src={`http://localhost:4000/upload/${
-                    item.place.photos?.[0] || ""
-                  }`} // Use optional chaining
-                  alt={item.place.title}
-                />
-              </Link>
-              <h2>{item.place.title}</h2>
-              <button onClick={() => handleRemoveItem(item._id)}>Remove</button>
-            </div>
-          ))}
+        <div className="centerit">
+          <div className="container2">
+            {wishlistItems.map((item) => (
+              <div key={item._id}>
+                <Link to={`/place/${item.place._id}`}>
+                  <img
+                    className="box-img2"
+                    src={`http://localhost:4000/upload/${
+                      item.place.photos?.[0] || ""
+                    }`} // Use optional chaining
+                    alt={item.place.title}
+                  />
+                </Link>
+                <h2>{item.place.title}</h2>
+                <button onClick={() => togglePopup2(item._id)}>Remove</button>
+              </div>
+            ))}
+            {warning && (
+              <DeletePop
+                itemId={currentItem}
+                onClose={closePopup2}
+                onRemove={handleRemoveItem}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -14,6 +14,12 @@ function Title({ place }) {
               <span> Back to Home</span>
             </button>
           </Link>
+          <Link to="/wishlist">
+            <button className="flex items-center">
+              <i className="bi bi-heart mr-1"></i>
+              <span>Wishlist</span>
+            </button>
+          </Link>
           <button className="icon">
             <i class="bi bi-upload"></i> <span>Share</span>
           </button>
