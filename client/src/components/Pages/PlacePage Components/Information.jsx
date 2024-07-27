@@ -117,13 +117,15 @@ export default function Information({ place }) {
             </div>
           </div>
           <button
-            className="bg-primary rounded-2xl w-full mt-5"
+            className="bookbutton"
             onClick={handleBooking}
           >
             Book now
           </button>
           {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>}
+          {/* {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>} */}
         </div>
+        {/* {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>} */}
       </div>
     </div>
   );

@@ -1,16 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Base styles (for larger screens) */
 .custom-popup {
-  position: absolute !important; /* Override default position */
+  position: absolute !important;
   top: -975px !important;
   left: 410.594px !important;
   z-index: 999 !important;
   background-color: black;
 }
 
-/* CSS */
 .parent-container1 {
   display: flex;
   justify-content: center;
@@ -21,9 +17,9 @@
   height: 33px;
   background-color: black;
   border-radius: 50%;
-  display: flex; /* Enables flexbox */
-  align-items: center; /* Vertically centers the paragraph */
-  justify-content: center; /* Horizontally centers the paragraph */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .first-latter {
@@ -41,11 +37,10 @@
 .now {
   width: 800px;
   height: 65px;
-
   display: flex;
-  gap: 2;
+  gap: 2px;
   border: 1px solid #d1d5db;
-  border-radius: 9999px; /* full-rounded */
+  border-radius: 9999px;
   padding: 8px 16px;
   justify-content: space-between;
 }
@@ -55,38 +50,19 @@
   margin-right: 70px;
 }
 
-.marquee {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-}
-
-.track {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 2s linear infinite;
-}
-
-.profile {
-  position: relative;
-}
-
-.profile1 {
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transitions */
-}
-
-.profile1:hover {
-  background-color: #f9f9f9; /* Light background on hover */
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-  transform: scale(1.02); /* Slightly enlarge on hover */
+.timepass {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+  font-weight: 500;
+  position: absolute;
+  left: 43%;
 }
 
 .head {
   position: fixed;
   width: 100%;
-  top: 0%;
+  top: 0;
   z-index: 2;
   background-color: white;
   height: 160px;
@@ -100,37 +76,219 @@
   transition: transform 0.3s ease;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+/* Responsive styles for large screens (1090px and below) */
+@media (max-width: 1090px) {
+  .wow, .now {
+    width: calc(100% - 20px);
+    padding: 0 10px;
   }
-  100% {
-    transform: translateX(-100%);
+
+  .timepass {
+    gap: 20px;
+    font-size: 14px;
+    left: 5%;
+  }
+
+  .custom-popup {
+    width: 200px !important;
+    height: 90px !important;
+    top: 100px !important;
+    left: 10px !important;
   }
 }
 
-.fade-in-out {
-  animation: fadeInOut 3s linear infinite;
+/* Responsive styles for medium screens (768px and below) */
+@media (max-width: 768px) {
+  .wow, .now {
+    width: calc(100% - 20px);
+    height: auto;
+  }
+
+  .header {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .circle-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .first-latter {
+    font-size: 11px;
+  }
+
+  .timepass {
+    gap: 15px;
+    font-size: 12px;
+    left: 2%;
+  }
+
+  .custom-popup {
+    width: 180px !important;
+    height: 80px !important;
+    top: 80px !important;
+    left: 0 !important;
+  }
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
+/* Responsive styles for small tablets and large mobile screens (600px and below) */
+@media (max-width: 600px) {
+  .header {
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  50% {
-    opacity: 1;
+
+  .circle-icon {
+    width: 24px;
+    height: 24px;
   }
-  100% {
-    opacity: 0;
+
+  .first-latter {
+    font-size: 9px;
+  }
+
+  .timepass {
+    gap: 10px;
+    font-size: 10px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 150px !important;
+    height: 60px !important;
+    top: 60px !important;
+    left: 0 !important;
   }
 }
 
-.timepass {
-  /* flex gap-10 text-base mt-2 font-semibold fixed */
-  display: flex;
-  gap: 40px;
-  margin-top: 10px;
-  font-weight: 500;
-  position: absolute;
-  left: 43%;
+/* Responsive styles for mobile screens (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .circle-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .first-latter {
+    font-size: 8px;
+  }
+
+  .timepass {
+    gap: 8px;
+    font-size: 9px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 130px !important;
+    height: 50px !important;
+    top: 50px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for very small screens (360px and below) */
+@media (max-width: 360px) {
+  .header {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .circle-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .first-latter {
+    font-size: 7px;
+  }
+
+  .timepass {
+    gap: 6px;
+    font-size: 7px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 100px !important;
+    height: 30px !important;
+    top: 40px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for ultra-small screens (320px and below) */
+@media (max-width: 320px) {
+  .header {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .circle-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .first-latter {
+    font-size: 6px;
+  }
+
+  .timepass {
+    gap: 4px;
+    font-size: 5px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 90px !important;
+    height: 20px !important;
+    top: 30px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for extremely small screens (200px and below) */
+@media (max-width: 200px) {
+  .header {
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  .circle-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .first-latter {
+    font-size: 5px;
+  }
+
+  .timepass {
+    gap: 2px;
+    font-size: 4px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 80px !important;
+    height: 15px !important;
+    top: 20px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for extremely tiny screens (100px and below) */
+@media (max-width: 100px) {
+  .header,
+  .circle-icon,
+  .first-latter,
+  .timepass,
+  .custom-popup {
+    display: none; /* Hide all elements if screen is too small */
+  }
 }
