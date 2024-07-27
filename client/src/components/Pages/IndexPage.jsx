@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import "./IndexPage.css";
 import Header from "../Header/Header.jsx";
+import MainPageFooter from "../Footer/MainPageFooter.jsx";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
@@ -30,11 +31,11 @@ function IndexPage() {
   }, [category]);
 
   return (
-    <>
+    <div className="m-0 p-0">
       <Header />
       <div className="app-container">
         <CartProvider>
-          <div className="each-card m-10">
+          <div className="each-card">
             {places.length > 0 &&
               places.map((place) => (
                 <div className="container" key={place._id}>
@@ -73,7 +74,8 @@ function IndexPage() {
           </div>
         </CartProvider>
       </div>
-    </>
+      <MainPageFooter />
+    </div>
   );
 }
 

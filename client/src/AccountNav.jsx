@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import Header2 from "./components/Header/Header2";
+import MainPageFooter from "./components/Footer/MainPageFooter";
 
 export default function AccountNav() {
   const { pathname } = useLocation();
@@ -85,6 +86,7 @@ export default function AccountNav() {
           My Wishlist
         </Link>
       </nav>
+      <MainPageFooter />
     </>
   );
 }

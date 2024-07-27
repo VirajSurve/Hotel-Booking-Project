@@ -72,7 +72,7 @@ function Header() {
   const { user } = useContext(UserContext);
   let firstLetter = "";
   if (user && user.name) {
-    firstLetter = user.name.charAt(0);
+    firstLetter = user.name.charAt(0).toUpperCase();
   }
 
   const [boldElement, setBoldElement] = useState("stays");

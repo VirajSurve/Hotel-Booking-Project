@@ -19,7 +19,7 @@ function Header2() {
   const { user } = useContext(UserContext);
   let firstLetter = "";
   if (user && user.name) {
-    firstLetter = user.name.charAt(0);
+    firstLetter = user.name.charAt(0).toUpperCase();
   }
 
   return (

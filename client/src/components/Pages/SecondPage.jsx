@@ -8,6 +8,7 @@ import Information from "./PlacePage Components/Information.jsx";
 import Reviews from "./PlacePage Components/Reviews.jsx";
 import Mapp from "./PlacePage Components/Mapp.jsx";
 import Header2 from "../Header/Header2.jsx";
+import MainPageFooter from "../Footer/MainPageFooter.jsx";
 
 export default function SecondPage() {
   const { id } = useParams();
@@ -50,6 +51,7 @@ export default function SecondPage() {
           <Reviews place={place} />
         </div>
       </div>
+      <MainPageFooter />
     </>
   );
 }

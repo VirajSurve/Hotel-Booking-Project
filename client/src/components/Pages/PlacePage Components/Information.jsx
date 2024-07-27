@@ -3,10 +3,7 @@ import Rating from "./Rating";
 import { UserContext } from "../../../UserContext";
 import "./Information.css";
 
-import {
-  differenceInCalendarDays,
-  format,
-} from "date-fns";
+import { differenceInCalendarDays, format } from "date-fns";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
@@ -63,25 +60,6 @@ export default function Information({ place }) {
     <div className="center">
       <div className="information">
         <div className="info">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-7 top-12 p-0"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-            />
-          </svg>
           <p className="type">{place.address}</p>
           <p className="space">Max Guest {place.maxGuests}</p>
           <Rating place={place} />

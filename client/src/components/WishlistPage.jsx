@@ -3,7 +3,7 @@ import { useWishlist } from "../WishlistContext";
 import axios from "axios";
 import "./Wishlist.css";
 import { Link } from "react-router-dom";
-
+import MainPageFooter from "./Footer/MainPageFooter.jsx";
 import WishlistHeader from "./Header/WishlistHeader.jsx";
 import DeletePop from "./DeletePop.jsx";
 
@@ -46,7 +46,12 @@ function WishlistPage() {
   };
 
   if (wishlistItems.length === 0)
-    return <h1 className="text-center">Your wishlist is empty</h1>;
+    return (
+      <div>
+        <WishlistHeader />
+        <h1 className="text-center">Your wishlist is empty</h1>
+      </div>
+    );
 
   return (
     <>
@@ -87,6 +92,7 @@ function WishlistPage() {
           </div>
         </div>
       </div>
+      <MainPageFooter />
     </>
   );
 }
