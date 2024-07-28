@@ -83,7 +83,7 @@ function Header() {
   return (
     <header className="head">
       <div className="header flex justify-between mb-5 mt-4">
-        <Link to={"/"} href="" className="flex items-center gap-1">
+        <Link to={"/"} href="" className="flex items-center gap-1 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -103,7 +103,7 @@ function Header() {
           </span>
         </Link>
 
-        <div className="timepass">
+        <div className=" hidden md:timepass">
           <div
             onClick={() => handleClick("stays")}
             className="individual-div cursor-pointer"
