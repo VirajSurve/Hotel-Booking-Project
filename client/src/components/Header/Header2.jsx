@@ -4,6 +4,11 @@ import "./Header2.css";
 import "./Header.css";
 import PopupContent from "./PopupContent";
 import { UserContext } from "../../UserContext";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import AnyTime from "../ADD/AnyTime21";
+import Add_guest from "../ADD/Add_guest";
+import Any_where from "../ADD/Any_where";
 
 function Header2() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -43,14 +48,70 @@ function Header2() {
           Four Seasons
         </span>
       </Link>
+
       <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
-        <div>AnyWhere</div>
+        <Popup
+          trigger={<div className="cursor-pointer">AnyWhere</div>}
+          position="bottom center"
+          className="custom-popup"
+          contentStyle={{
+            width: "223px",
+            height: "94px",
+            padding: "20px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            position: "absolute",
+            zIndex: "999",
+            pointerEvents: "auto",
+            top: "140px",
+            left: "40px",
+          }}
+          arrowStyle={{ display: "none" }}
+        >
+          <Any_where />
+        </Popup>
         <div className="border-l border-gray-300"></div>
-        <div>AnyTime</div>
+        <Popup
+          trigger={<div className="cursor-pointer">AnyTime</div>}
+          position="bottom center"
+          className="custom-popup"
+          contentStyle={{
+            width: "205px",
+            height: "94px",
+            padding: "20px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            position: "absolute",
+            zIndex: "999",
+            pointerEvents: "auto",
+            top: "140px",
+            left: "40px",
+          }}
+          arrowStyle={{ display: "none" }}
+        >
+          <AnyTime />
+        </Popup>
         <div className="border-l border-gray-300"></div>
-        <Link to="/wishlist">
-          <div>Add guest</div>
-        </Link>
+        <Popup
+          trigger={<div className="cursor-pointer">Addguest</div>}
+          position="bottom center"
+          className="custom-popup"
+          contentStyle={{
+            width: "205px",
+            height: "94px",
+            padding: "20px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            position: "absolute",
+            zIndex: "999",
+            pointerEvents: "auto",
+            top: "140px",
+            left: "40px",
+          }}
+          arrowStyle={{ display: "none" }}
+        >
+          <Add_guest />
+        </Popup>
         <button className="bg-primary text-white p-1 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +129,7 @@ function Header2() {
           </svg>
         </button>
       </div>
+
       <div className="profile-container relative">
         <div
           onClick={togglePopup}

@@ -47,8 +47,8 @@ export default function SecondPage() {
             setAllPhotos={setAllPhotos}
           />
           <Information place={place} />
-          <Mapp place={place} />
-          <Reviews place={place} />
+          {/* <Mapp place={place} /> */}
+          {/* <Reviews place={place} /> */}
         </div>
       </div>
       <MainPageFooter />
