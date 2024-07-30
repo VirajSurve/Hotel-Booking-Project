@@ -9,11 +9,14 @@ import Reviews from "./PlacePage Components/Reviews.jsx";
 import Mapp from "./PlacePage Components/Mapp.jsx";
 import Header2 from "../Header/Header2.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
+import Imagesmore from "./PlacePage Components/Imagesmore.jsx";
 
 export default function SecondPage() {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
   const [showAllPhotos, setAllPhotos] = useState(false);
+
+  const [display, setDisplay] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -24,16 +27,6 @@ export default function SecondPage() {
   }, [id]);
 
   if (!place) return "";
-
-  console.log("showAllPhotos:", showAllPhotos);
-  console.log(place.name);
-  // if (showAllPhotos) {
-  //     return (
-  //         <div className='fixed bg-black min-w-full min-h-screen flex items-center justify-center'>
-  //             Hi
-  //         </div>
-  //     );
-  // }
 
   return (
     <>
@@ -52,6 +45,13 @@ export default function SecondPage() {
         </div>
       </div>
       <MainPageFooter />
+      {display && (
+        <Imagesmore
+          place={place}
+          showAllPhotos={showAllPhotos}
+          setAllPhotos={setAllPhotos}
+        />
+      )}
     </>
   );
 }

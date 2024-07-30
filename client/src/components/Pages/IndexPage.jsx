@@ -58,17 +58,14 @@ function IndexPage() {
                       </div>
                     )}
                   </Link>
-                  {/* <div className="varad">
+                  <div className="varad">
                     <h2 className="font-bold leading-5">{place.address}</h2>
-                    <h3 className="place text-sm truncate text-gray-500">
-                      {place.title}
-                    </h3>
-                  </div> */}
-                  {/* <p className="side">{}</p>
+                  </div>
+                  <p className="side">{}</p>
                   <p className="price mt-1">
                     <span className="font-bold">${place.price}</span>
                     <span id="period">night</span>
-                  </p> */}
+                  </p>
                 </div>
               ))}
           </div>
