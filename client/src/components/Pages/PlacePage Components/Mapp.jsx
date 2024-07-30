@@ -85,3 +85,11 @@ const Mapp = ({ place }) => {
   );
 };
 export default Mapp;
+
+// import React from "react";
+
+// function Mapp() {
+//   return <div></div>;
+// }
+
+// export default Mapp;

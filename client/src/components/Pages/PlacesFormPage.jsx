@@ -174,7 +174,7 @@ export default function PlacesFormPage(){
                             <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={Y} onChange={e => { setY(e.target.value) }} />
                         </div>
                     </div>
-                    <button className="bg-primary mt-5 rounded-full py-1 px-2  w-full border my-1">Save</button>
+                    <button className="bg-primary mt-5 rounded-full py-1 px-2  w-full border my-1 mb-20">Save</button>
                 </form>
             </div>
         </>

@@ -447,4 +447,8 @@
       border-bottom-left-radius: 12px;
     }
   }
+
+  .parent-container{
+    /* overflow-x:hidden; */
+  }
   

@@ -4,7 +4,7 @@ const Footer = ({ close }) => {
   return (
     <>
       <div className="model-wrapper" onClick={close}></div>
-      <div className="footer">
+      <div className="hidden md:footer ">
         <div className="sb_footer section_padding">
           <div className="sb__footer-links">
             <div className="sb__footer-links_div">

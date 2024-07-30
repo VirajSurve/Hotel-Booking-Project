@@ -19,6 +19,9 @@
   position: sticky;
   top: 50px; /* Adjust based on the desired sticky position */
   left: 220px; /* Adjust based on the sidebar's width + some margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .center {
@@ -38,4 +41,14 @@
 
 #price {
   font-size: larger;
+}
+
+.bookbutton {
+  display: block;
+  border-radius: 10px;
+  background-color: #A855F7;
+  width: 325px;
+  height: 50px;
+  font-size: 15px;
+  margin: 20px auto 0 auto; /* Centering the button */
 }

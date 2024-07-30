@@ -9,6 +9,7 @@ import "reactjs-popup/dist/index.css";
 import AnyTime from "../ADD/AnyTime21";
 import Add_guest from "../ADD/Add_guest";
 import Any_where from "../ADD/Any_where";
+
 import PopupContent from "./PopupContent";
 import Nav from "../Nav";
 
@@ -71,7 +72,7 @@ function Header() {
   const { user } = useContext(UserContext);
   let firstLetter = "";
   if (user && user.name) {
-    firstLetter = user.name.charAt(0).toUpperCase();
+    firstLetter = user.name.charAt(0);
   }
 
   const [boldElement, setBoldElement] = useState("stays");
@@ -83,7 +84,7 @@ function Header() {
   return (
     <header className="head">
       <div className="header flex justify-between mb-5 mt-4">
-        <Link to={"/"} href="" className="flex items-center gap-1 ">
+        <Link to={"/"} href="" className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -103,7 +104,7 @@ function Header() {
           </span>
         </Link>
 
-        <div className=" hidden md:timepass">
+        <div className="timepass">
           <div
             onClick={() => handleClick("stays")}
             className="individual-div cursor-pointer"
@@ -164,28 +165,29 @@ function Header() {
         <div className="wow">
           <div className="now flex gap-2 border border-gray-300 rounded-full shadow-md shadow-gray-250">
             <div className="any1">
-              <Popup
-                trigger={<button className="mt-2 ml-16">Anywhere</button>}
-                position="bottom center"
-                className="custom-popup"
-                contentStyle={{
-                  width: "223px",
-                  height: "94px",
-                  padding: "20px",
-                  border: "1px solid #ddd",
-                  borderRadius: "10px",
-                  position: "absolute",
-                  zIndex: "999",
-                  pointerEvents: "auto",
-                  top: "140.41px",
-                  left: "40.98px",
-                }}
-                arrowStyle={{ display: "none" }} /* Hide arrow, though this might not work */
-              >
-                <div>
-                  <Any_where />
-                </div>
-              </Popup>
+            <Popup
+  trigger={<button className="mt-2 ml-16">Anywhere</button>}
+  position="bottom center"
+  className="custom-popup"
+  contentStyle={{
+    width: "223px",
+    height: "94px",
+    padding: "20px",
+    border: "1px solid #ddd",
+    borderRadius:"10px",
+    position: "absolute",
+    zIndex: "999",
+    pointerEvents: "auto",
+    top: "140.41px",
+    left: "40.98px",
+  }}
+  arrowStyle={{ display: "none" }} /* Hide arrow, though this might not work */
+>
+  <div>
+    <Any_where />
+  </div>
+</Popup>
+
             </div>
             <div className="border-l border-gray-300"></div>
             <div className="any2">
@@ -197,7 +199,7 @@ function Header() {
                   height: "94px", // Set the height of the popup
                   padding: "20px",
                   border: "1px solid #ddd",
-                  borderRadius: "10px",
+                  borderRadius:"10px",
                   position: "absolute",
                   zIndex: "999",
                   pointerEvents: "auto",
@@ -220,7 +222,7 @@ function Header() {
                 contentStyle={{
                   padding: "20px",
                   border: "1px solid #add",
-                  borderRadius: "10px",
+                  borderRadius:"10px",
                   position: "absolute",
                   zIndex: "999",
                   pointerEvents: "auto",
