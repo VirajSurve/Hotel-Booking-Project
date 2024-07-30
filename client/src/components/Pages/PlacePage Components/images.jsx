@@ -55,7 +55,7 @@ function Images({ place, showAllPhotos, setAllPhotos }) {
             setAllPhotos(true);
             togg();
           }}
-          className="flex absolute bottom-4 right-48 bg-white px-3 py-2 rounded-2xl shadow shadow-md shadow-gray-500"
+          className="flex absolute bottom-4 right-48 bg-white px-3 py-2 rounded-2xl shadow shadow-md shadow-gray-500  hidden md:block"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
