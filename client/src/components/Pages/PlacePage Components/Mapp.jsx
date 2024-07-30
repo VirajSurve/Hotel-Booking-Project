@@ -70,6 +70,7 @@ const Mapp = ({ place }) => {
   const mapStyle = {
     width: "1000px",
     height: "500px",
+    zIndex: 49,
     // margin:'10px',
   };
   return (
