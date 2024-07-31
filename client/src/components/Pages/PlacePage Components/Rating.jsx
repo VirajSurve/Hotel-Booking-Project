@@ -8,7 +8,7 @@ export default function Rating({ place }) {
   // const {rate , review} = useGlobal();
   return (
     <div>
-      <div className="stars">
+      <div className="stars review">
         <p className="guest">
           <span id="G">Guest</span>
           <br />

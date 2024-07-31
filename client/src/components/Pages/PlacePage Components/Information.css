@@ -52,3 +52,10 @@
   font-size: 15px;
   margin: 20px auto 0 auto; /* Centering the button */
 }
+
+@media (max-width:768px){
+  .address{
+    font-size: large;
+    font-weight: 500;
+  }
+}

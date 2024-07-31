@@ -10,6 +10,7 @@ import Mapp from "./PlacePage Components/Mapp.jsx";
 import Header2 from "../Header/Header2.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
 import Imagesmore from "./PlacePage Components/Imagesmore.jsx";
+import Header3 from "../Header/Header3.jsx";
 
 export default function SecondPage() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ export default function SecondPage() {
 
   return (
     <>
-      <Header2 />
+      <Header3 />
       <div className="mt-5">
         <div className="parent-container">
           <Title place={place} />

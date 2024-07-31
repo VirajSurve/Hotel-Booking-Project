@@ -60,7 +60,7 @@ export default function Information({ place }) {
     <div className="center">
       <div className="information">
         <div className="info">
-          <p className="type">{place.address}</p>
+          <p className="type address">{place.address}</p>
           <p className="space">Max Guest {place.maxGuests}</p>
           <Rating place={place} />
         </div>
