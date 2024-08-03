@@ -103,7 +103,7 @@ function Header() {
           </span>
         </Link>
 
-        <div className=" hidden md:timepass">
+        <div className=" timepass">
           <div
             onClick={() => handleClick("stays")}
             className="individual-div cursor-pointer"
