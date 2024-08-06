@@ -3,8 +3,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Imagesmore from "./Imagesmore";
 import "./ShowMore.css";
+import { Link } from "react-router-dom";
 
-function ShowMore({ close }) {
+function ShowMore() {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
   const [showAllPhotos, setAllPhotos] = useState(false);
@@ -23,9 +24,11 @@ function ShowMore({ close }) {
     <>
       <div className="model-wrapper1"></div>
       <div className="show-more-content flex justify-between ml-7 mr-7 mt-5 font-medium z-50">
-        <div className="cir" onClick={close}>
-          <i className="bi bi-chevron-left"></i>
-        </div>
+        <Link to={"/place/" + place._id} key={place._id}>
+          <div className="cir">
+            <i className="bi bi-chevron-left"></i>
+          </div>
+        </Link>
         <div className="flex gap-7">
           <button>
             <i className="bi bi-upload mr-1"></i>

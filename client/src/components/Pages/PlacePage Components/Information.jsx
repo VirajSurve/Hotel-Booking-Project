@@ -126,11 +126,11 @@ export default function Information({ place }) {
               />
             </div>
           </div>
-          <Link to="/account/bookings">
-            <button className="bookbutton" onClick={handleBooking}>
-              Book now
-            </button>
-          </Link>
+
+          <button className="bookbutton" onClick={handleBooking}>
+            Book now
+          </button>
+
           {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>}
         </div>
       </div>

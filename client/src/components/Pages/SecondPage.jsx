@@ -14,6 +14,7 @@ export default function SecondPage() {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
   const [showAllPhotos, setAllPhotos] = useState(false);
+  const [transfer, setTransfer] = useState(false);
 
   useEffect(() => {
     if (id) {

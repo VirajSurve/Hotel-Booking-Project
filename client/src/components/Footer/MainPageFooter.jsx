@@ -14,8 +14,8 @@ function MainPageFooter() {
   }
 
   return (
-    <div className={isPopped ? "blurred" : ""}>
-      <div className="hidden md:footer-container ">
+    <div>
+      <div className="footer-container ">
         <hr />
         <div className="i mt-3">
           <div className="i1">

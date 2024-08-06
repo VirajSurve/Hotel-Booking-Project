@@ -4,16 +4,17 @@ import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import Button from "../Button.jsx";
 import Header1 from "../Header/Header1.jsx";
-// import Header2 from "../Header/Header2.jsx";
 import Header3 from "../Header/Header3.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
 import "../../App.css";
 import "./IndexPage.css";
+import ShowMore from "./PlacePage Components/ShowMore.jsx";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { category } = useParams();
+  const [moveback, setMoveBack] = useState(false);
 
   useEffect(() => {
     if (category) {
@@ -66,6 +67,7 @@ function IndexPage() {
                       </div>
                     )}
                   </Link>
+                  {moveback && <ShowMore place1={place} />}
                 </div>
               ))}
           </div>
@@ -75,4 +77,5 @@ function IndexPage() {
     </div>
   );
 }
+
 export default IndexPage;

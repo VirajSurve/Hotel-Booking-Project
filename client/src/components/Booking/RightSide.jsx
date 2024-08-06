@@ -100,7 +100,7 @@ function RightSide() {
           if I’m responsible for damage. I agree to book with Luxury Retreats
           International ULC.
         </p>
-        <Link to="/BookCart">
+        <Link to="/account/bookings">
           <div className="pay-button flex justify-center cursor-pointer">
             <button className="text-white">Confirm and pay</button>
           </div>
