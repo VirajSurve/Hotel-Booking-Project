@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import Rating from "./Rating";
 import { UserContext } from "../../../UserContext";
 import "./Information.css";
-
 import { differenceInCalendarDays, format } from "date-fns";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export default function Information({ place }) {
   const { startDate, setStartDate, endDate, setEndDate, guests, setGuests } =
@@ -15,6 +14,10 @@ export default function Information({ place }) {
   const [mobile, setMobile] = useState("");
   const [redirect, setRedirect] = useState("");
   const { user } = useContext(UserContext);
+
+  const handleReload = () => {
+    window.location.reload();
+  };
 
   useEffect(() => {
     if (user) {
@@ -50,6 +53,13 @@ export default function Information({ place }) {
     });
     const bookingId = response.data._id;
     setRedirect(`/account/bookings/${bookingId}`);
+
+    // Reset all fields after booking
+    setStartDate(null);
+    setEndDate(null);
+    setGuests(1);
+    setName(user ? user.name : "");
+    setMobile("");
   }
 
   if (redirect) {
@@ -60,7 +70,7 @@ export default function Information({ place }) {
     <div className="center">
       <div className="information">
         <div className="info">
-          <p className="type">{place.address}</p>
+          <p className="type address">{place.address}</p>
           <p className="space">Max Guest {place.maxGuests}</p>
           <Rating place={place} />
         </div>
@@ -116,16 +126,13 @@ export default function Information({ place }) {
               />
             </div>
           </div>
-          <button
-            className="bookbutton"
-            onClick={handleBooking}
-          >
-            Book now
-          </button>
+          <Link to="/account/bookings">
+            <button className="bookbutton" onClick={handleBooking}>
+              Book now
+            </button>
+          </Link>
           {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>}
-          {/* {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>} */}
         </div>
-        {/* {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>} */}
       </div>
     </div>
   );

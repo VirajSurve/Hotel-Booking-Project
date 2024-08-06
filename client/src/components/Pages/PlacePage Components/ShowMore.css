@@ -21,6 +21,12 @@
   z-index: 51; /* Ensure this is higher than model-wrapper1 */
 }
 
+.more {
+  position: relative;
+  z-index: 52;
+  /* Adjust as needed to avoid overlapping with the fixed header */
+}
+
 .cir {
   border-radius: 50%;
   transition: background-color 0.3s ease;

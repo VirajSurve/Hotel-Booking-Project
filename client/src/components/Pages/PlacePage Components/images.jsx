@@ -15,7 +15,7 @@ function Images({ place, showAllPhotos, setAllPhotos }) {
 
   return (
     <div>
-      <div className="relative body overflow-hidden">
+      <div className="hamrebodysepranre relative body overflow-hidden">
         <div className="Container">
           {place.photos.map((image, index) => {
             let className = "";
@@ -41,20 +41,21 @@ function Images({ place, showAllPhotos, setAllPhotos }) {
             return (
               <img
                 key={index}
-                src={"http://localhost:4000/upload/" + image}
+                src={`http://localhost:4000/upload/${image}`}
                 alt={className}
                 className={className}
               />
             );
           })}
         </div>
+
         <button
           onClick={() => {
             console.log("Show more clicked");
             setAllPhotos(true);
             togg();
           }}
-          className="flex absolute bottom-4 right-48 bg-white px-3 py-2 rounded-2xl shadow shadow-md shadow-gray-500"
+          className="flex absolute bottom-4 right-48 bg-white px-3 py-2 rounded-2xl shadow shadow-md shadow-gray-500  hidden md:block"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
