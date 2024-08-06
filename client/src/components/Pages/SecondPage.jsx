@@ -22,9 +22,7 @@ export default function SecondPage() {
       });
     }
   }, [id]);
-
   if (!place) return "";
-
   console.log("showAllPhotos:", showAllPhotos);
   console.log(place.name);
   // if (showAllPhotos) {
@@ -34,7 +32,6 @@ export default function SecondPage() {
   //         </div>
   //     );
   // }
-
   return (
     <>
       <Header2 />
@@ -47,7 +44,7 @@ export default function SecondPage() {
             setAllPhotos={setAllPhotos}
           />
           <Information place={place} />
-          {/* <Mapp place={place} /> */}
+          <Mapp place={place} />
           {/* <Reviews place={place} /> */}
         </div>
       </div>

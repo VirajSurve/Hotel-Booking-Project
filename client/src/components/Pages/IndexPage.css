@@ -1,6 +1,8 @@
 .app-container {
   position: absolute;
   top: 28%;
+  z-index: -2;
+
 }
 
 .content {
@@ -52,7 +54,6 @@
   padding: 10px;
   cursor: pointer;
 }
-
 .heart {
   position: absolute;
   top: 15px;
@@ -60,12 +61,10 @@
   z-index: 1;
   font-size: 20px;
 }
-
 .varad {
   display: flex;
   justify-content: space-between;
 }
-
 .each-card {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -73,12 +72,10 @@
   margin-bottom: 10px;
   gap: 0;
 }
-
 .app-container {
   display: flex;
   flex-direction: column;
 }
-
 @media (max-width: 1550px) {
   .each-card {
     grid-template-columns: repeat(4, 1fr);
@@ -204,6 +201,7 @@
 @media (max-width: 1050px) {
   .each-card {
     grid-template-columns: repeat(3, 1fr);
+    z-index: 10;
   }
 
   .box-img {

@@ -1,0 +1,48 @@
+.header3search
+{
+    display:flex;
+    flex-direction: row;
+    border:2px solid white;
+    border-radius:80px;
+    height: 38px;
+    align-items: center;
+    width: 100%;
+    box-shadow: 
+    0 -4px 6px -1px rgba(0, 0, 0, 0),   /* Top shadow */
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),    /* Bottom shadow */
+    -4px 0 6px -1px rgba(0, 0, 0, 0.1),   /* Left shadow */
+    4px 0 6px -1px rgba(0, 0, 0, 0.1);    /* Right shadow */
+    height: 60px;
+    background-color: white;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.header3icon
+{
+    height: 30px;
+    width: 30px;
+    margin-right: 9px;
+    margin-left:11px;
+}
+
+.inputholder2::placeholder{
+    color:black;
+    font-weight:500;
+}
+
+.head2cont{
+    position: fixed;
+    display: flex;
+    overflow-x: auto;
+    z-index: 200;
+    /* margin: 70px; */
+}
+.patta{
+    width:100%;
+    height:31px;
+    background-color:white;
+    z-index: -1;
+    position: fixed;
+    top:60px
+}

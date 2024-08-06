@@ -253,7 +253,6 @@ function Header() {
           </div>
         </div>
       </div>
-
       <Nav />
     </header>
   );

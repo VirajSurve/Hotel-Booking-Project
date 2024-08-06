@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../Button.jsx";
-import "../../App.css";
 import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
-import "./IndexPage.css";
-import Header from "../Header/Header.jsx";
+import Button from "../Button.jsx";
+import Header1 from "../Header/Header1.jsx";
+// import Header2 from "../Header/Header2.jsx";
+import Header3 from "../Header/Header3.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
+import "../../App.css";
+import "./IndexPage.css";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { category } = useParams();
 
   useEffect(() => {
     if (category) {
       axios.get("http://localhost:4000/places").then((response) => {
-        //   console.log("Data:", response.data);
-        // Filter places based on the perk
         const refined = response.data.filter((item) =>
           item.perks.includes(category)
         );
-        //   console.log("Refined data:", refined);
         setPlaces(refined);
       });
     } else {
@@ -30,9 +30,20 @@ function IndexPage() {
     }
   }, [category]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="m-0 p-0">
-      <Header />
+      {windowWidth >= 1090 ? <Header1 /> : <Header3 />}
       <div className="app-container">
         <CartProvider>
           <div className="each-card">
@@ -52,23 +63,9 @@ function IndexPage() {
                           }
                           alt=""
                         />
-                        {/* <div className="bi bi-star-fill absolute bottom-5 right-3">
-                          hi
-                        </div> */}
                       </div>
                     )}
                   </Link>
-                  {/* <div className="varad">
-                    <h2 className="font-bold leading-5">{place.address}</h2>
-                    <h3 className="place text-sm truncate text-gray-500">
-                      {place.title}
-                    </h3>
-                  </div> */}
-                  {/* <p className="side">{}</p>
-                  <p className="price mt-1">
-                    <span className="font-bold">${place.price}</span>
-                    <span id="period">night</span>
-                  </p> */}
                 </div>
               ))}
           </div>
@@ -78,5 +75,4 @@ function IndexPage() {
     </div>
   );
 }
-
 export default IndexPage;
