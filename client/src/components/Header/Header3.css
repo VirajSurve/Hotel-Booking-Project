@@ -26,6 +26,10 @@
     margin-left:11px;
 }
 
+.inputholder2
+{
+    outline: none;
+}
 .inputholder2::placeholder{
     color:black;
     font-weight:500;
