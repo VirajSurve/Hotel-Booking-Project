@@ -10,9 +10,10 @@ import PlacesFormPage from "./components/Pages/PlacesFormPage.jsx";
 import SecondPage from "./components/Pages/SecondPage.jsx";
 import WishlistPage from "./components/WishlistPage.jsx";
 import { WishlistProvider } from "./WishlistContext.jsx";
-import BookingsPage from "./components/Pages/PlacePage Components/BookingsPage.jsx";
-import BookingPage from "./components/Pages/PlacePage Components/BookingPage.jsx";
+import BookingsPage from "./components/Booking/BookingsPage.jsx";
+import BookingPage from "./components/Booking/BookingPage.jsx";
 import ShowMore from "./components/Pages/PlacePage Components/ShowMore.jsx";
+import BookCart from "./components/Booking/BookCart.jsx";
 
 axios.defaults.withCredentials = true;
 
@@ -32,9 +33,9 @@ function App() {
             <Route path="account/places/new" element={<PlacesFormPage />} />
             <Route path="account/places/:id" element={<PlacesFormPage />} />
             <Route path="place/:id" element={<SecondPage />} />
-            <Route path="account/bookings" element={<BookingsPage />} />
+            <Route path="account/bookings" element={<BookCart />} />
             <Route path="account/bookings/:id" element={<BookingPage />} />
-            <Route path="images" element={<ShowMore />} />
+            <Route path="place/:id/showmore" element={<ShowMore />} />
           </Route>
         </Routes>
       </WishlistProvider>

@@ -16,6 +16,7 @@ export default function SecondPage() {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
   const [showAllPhotos, setAllPhotos] = useState(false);
+  const [transfer, setTransfer] = useState(false);
 
   const [display, setDisplay] = useState(false);
 
@@ -26,9 +27,7 @@ export default function SecondPage() {
       });
     }
   }, [id]);
-
   if (!place) return "";
-
   return (
     <>
       <Header3 />
@@ -41,7 +40,7 @@ export default function SecondPage() {
             setAllPhotos={setAllPhotos}
           />
           <Information place={place} />
-          {/* <Mapp place={place} /> */}
+          <Mapp place={place} />
           {/* <Reviews place={place} /> */}
         </div>
       </div>

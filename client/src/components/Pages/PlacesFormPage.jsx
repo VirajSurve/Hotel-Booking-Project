@@ -115,66 +115,78 @@ export default function PlacesFormPage(){
     return (
         <>
             <AccountNav />
-            <div>
+            <div className="mx-4 sm:mx-6 md:mx-8 lg:mx-12">
                 <form onSubmit={savePlace}>
                     {/* {setName(user.name)} */}
                     <h1>Uploaded By {user.name}</h1>
-                    {preInput("Title", "Tile for your place it should be short and catchy as in advertisement.")}
-                    <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="text" placeholder="Title for you apt..." value={title} onChange={e => { setTitle(e.target.value) }} />
+                    {preInput("Title", "Title for your place it should be short and catchy as in advertisement.")}
+                    <div className="mb-4">
+                        <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="text" placeholder="Title for you apt..." value={title} onChange={e => { setTitle(e.target.value) }} />
+                    </div>
 
                     {preInput("Address", "Address to this place ")}
-                    <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="text" placeholder="Address..." value={address} onChange={e => { setAddress(e.target.value) }} />
+                    <div className="mb-4">
+                        <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="text" placeholder="Address..." value={address} onChange={e => { setAddress(e.target.value) }} />
+                    </div>
 
                     {preInput("Photos", "more = better")}
-                    <PhotosUploader addedPhotoes={addedPhotoes} onChange={setAddedPhotoes} />
+                    <div className="mb-4 ">
+                        <PhotosUploader addedPhotoes={addedPhotoes} onChange={setAddedPhotoes} />
+                    </div>
 
                     {preInput("Description", "Description about that place")}
-                    <textarea className="bg-gray-200 rounded-xl py-1 px-2 w-full border my-1" value={description} onChange={e => { setDiscription(e.target.value) }} />
+                    <div className="mb-4">
+                        <textarea className="bg-gray-200 rounded-xl py-1 px-2 w-full border my-1" value={description} onChange={e => { setDiscription(e.target.value) }} />
+                    </div>
 
-                    {preInput("Perks", "Please tick your ammentities")}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+                    {preInput("Perks", "Please tick your amenities")}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
                         <Perks selected={perks} onChange={setPerks} />
                     </div>
 
                     {preInput("Extra Info", "House Rules, Do's and Don't")}
-                    <textarea className="bg-gray-200 rounded-xl py-1 px-2 w-full border my-1" value={extraInfo} onChange={e => { setExtraInfo(e.target.value) }} />
+                    <div className="mb-4">
+                        <textarea className="bg-gray-200 rounded-xl py-1 px-2 w-full border my-1" value={extraInfo} onChange={e => { setExtraInfo(e.target.value) }} />
+                    </div>
 
-                    {preInput("CheckIn & CheckOut", "Add check-in and check-out time. Remembe to have some time for cleaining between guests")}
-                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2">
-                        <div>
+                    {preInput("CheckIn & CheckOut", "Add check-in and check-out time. Remember to have some time for cleaning between guests")}
+                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Check in Time</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="text" placeholder="12:00" value={checkIn} onChange={e => { setCheckIn(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="text" placeholder="12:00" value={checkIn} onChange={e => { setCheckIn(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Check out Time</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="text" placeholder="12:00" value={checkOut} onChange={e => { setCheckOut(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="text" placeholder="12:00" value={checkOut} onChange={e => { setCheckOut(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Max Guests</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={maxGuests} onChange={e => { setMaxGuest(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={maxGuests} onChange={e => { setMaxGuest(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Price per Night</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={price} onChange={e => { setPrice(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={price} onChange={e => { setPrice(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Rating</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={rate} onChange={e => { setRate(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={rate} onChange={e => { setRate(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Reviews</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={reviews} onChange={e => { setReviews(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={reviews} onChange={e => { setReviews(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">X</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={X} onChange={e => { setX(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={X} onChange={e => { setX(e.target.value) }} />
                         </div>
-                        <div>
+                        <div className="mb-4">
                             <h3 className="mt-2 -mb-1">Y</h3>
-                            <input className="bg-gray-200 rounded-full py-1 px-2  w-full border my-1" type="number" placeholder="" value={Y} onChange={e => { setY(e.target.value) }} />
+                            <input className="bg-gray-200 rounded-full py-1 px-2 w-full border my-1" type="number" placeholder="" value={Y} onChange={e => { setY(e.target.value) }} />
                         </div>
                     </div>
-                    <button className="bg-primary mt-5 rounded-full py-1 px-2  w-full border my-1 mb-20">Save</button>
+                    <div className="text-center mb-4">
+                        <button className="bg-primary rounded-full py-2 px-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 text-white">Save</button>
+                    </div>
                 </form>
             </div>
         </>

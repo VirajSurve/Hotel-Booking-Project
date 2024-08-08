@@ -3,6 +3,22 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Imagesmore from "./Imagesmore";
 import "./ShowMore.css";
+import { Link } from "react-router-dom";
+
+function ShowMore() {
+  const { id } = useParams();
+  const [place, setPlace] = useState(null);
+  const [showAllPhotos, setAllPhotos] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:4000/places/${id}`).then((response) => {
+        setPlace(response.data);
+      });
+    }
+  }, [id]);
+
+  if (!place) return null;
 
 function ShowMore({ close }) {
   const { id } = useParams();

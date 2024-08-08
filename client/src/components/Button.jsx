@@ -11,6 +11,7 @@ function Button({ place }) {
 
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const checkIfInWishlist = async () => {
       try {
@@ -71,7 +72,6 @@ function Button({ place }) {
       console.error("Error handling wishlist:", err);
     }
   };
-
   return (
     <button
       id="btnh"
