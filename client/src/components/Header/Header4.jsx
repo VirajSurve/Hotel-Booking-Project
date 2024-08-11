@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import "./Header3.css";
+import "./Header4.css";
 import Nav2 from "../Nav2";
 import header3searchicon from "./search-4-svgrepo-com.svg";
-function Header3()
+function Header4()
 {
     return(
        
@@ -16,7 +16,6 @@ function Header3()
         <Nav2 />
         </div>
         </div>
-        
     );
 }
-export default Header3;
+export default Header4;

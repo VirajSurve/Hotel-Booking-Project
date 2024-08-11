@@ -48,5 +48,4 @@ function MainPageFooter() {
     </div>
   );
 }
-
 export default MainPageFooter;

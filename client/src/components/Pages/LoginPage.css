@@ -1,4 +1,3 @@
-
 /* Center container vertically and horizontally */
 .container97 {
   display: flex;
@@ -110,14 +109,23 @@
 @media (max-width: 768px) {
   .container97 {
     padding: 20px;
+    width: 95%;
   }
 
   .text97 {
     font-size: 36px;
   }
 
+  .underline97 {
+    width: 50px;
+    height: 5px;
+  }
+
+  .inputs97 {
+    gap: 20px;
+  }
+
   .input97 {
-    width: 100%;
     height: 60px;
   }
 
@@ -130,9 +138,18 @@
     height: 50px;
     font-size: 16px;
   }
+
+  .forgot-password97 {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
+  .container97 {
+    padding: 15px;
+    width: 100%;
+  }
+
   .text97 {
     font-size: 28px;
   }
@@ -140,6 +157,10 @@
   .underline97 {
     width: 40px;
     height: 4px;
+  }
+
+  .inputs97 {
+    gap: 15px;
   }
 
   .input97 {
@@ -153,6 +174,10 @@
   .submit97 {
     width: 140px;
     height: 40px;
+    font-size: 14px;
+  }
+
+  .forgot-password97 {
     font-size: 14px;
   }
 }

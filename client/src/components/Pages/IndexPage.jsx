@@ -4,8 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import Button from "../Button.jsx";
 import Header1 from "../Header/Header1.jsx";
-import Header3 from "../Header/Header3.jsx";
+import Header4 from "../Header/Header4.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
+import MobileFooter from "../Footer/MobileFooter.jsx";
 import "../../App.css";
 import "./IndexPage.css";
 import ShowMore from "./PlacePage Components/ShowMore.jsx";
@@ -44,7 +45,7 @@ function IndexPage() {
 
   return (
     <div className="m-0 p-0">
-      {windowWidth >= 1090 ? <Header1 /> : <Header3 />}
+      {windowWidth >= 1090 ? <Header1 /> : <Header4 />}
       <div className="app-container">
         <CartProvider>
           <div className="each-card">
@@ -73,7 +74,7 @@ function IndexPage() {
           </div>
         </CartProvider>
       </div>
-      <MainPageFooter />
+      {windowWidth > 800 ? <MainPageFooter /> : <MobileFooter />}
     </div>
   );
 }
