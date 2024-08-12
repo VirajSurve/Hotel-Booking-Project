@@ -13,7 +13,7 @@ import { WishlistProvider } from "./WishlistContext.jsx";
 import BookingsPage from "./components/Booking/BookingsPage.jsx";
 import BookingPage from "./components/Booking/BookingPage.jsx";
 import ShowMore from "./components/Pages/PlacePage Components/ShowMore.jsx";
-import BookCart from "./components/Booking/BookCart.jsx";
+import BookCart from "./components/Booking/BookCart";
 
 axios.defaults.withCredentials = true;
 

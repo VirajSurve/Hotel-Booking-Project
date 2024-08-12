@@ -7,10 +7,10 @@ function Title({ place }) {
     <div>
       <div className="front">
         <h1 className="title">{place.title}</h1>
-        <div className="right-side flex items-center">
+        <div className="title-panel right-side flex items-center">
           <Link to="/">
-            <button className="house ">
-              <i class="bi bi-house"></i>
+            <button className="">
+              <i className="bi bi-house"></i>
               <span className="hidden md:block"> Back to Home</span>
             </button>
           </Link>
@@ -20,8 +20,8 @@ function Title({ place }) {
               <span className="hidden md:block">Wishlist</span>
             </button>
           </Link>
-          <button className="icon">
-            <i class="bi bi-upload"></i> <span className="hidden md:block">Share</span>
+          <button className="">
+            <i className="bi bi-upload"></i> <span className="hidden md:block">Share</span>
           </button>
         </div>
       </div>

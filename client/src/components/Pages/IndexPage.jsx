@@ -44,7 +44,7 @@ function IndexPage() {
 
   return (
     <div className="m-0 p-0">
-      {windowWidth >= 1090 ? <Header1 /> : <Header3 />}
+      {windowWidth >= 1090 ? <Header1 /> : <Header1 />}
       <div className="app-container">
         <CartProvider>
           <div className="each-card">

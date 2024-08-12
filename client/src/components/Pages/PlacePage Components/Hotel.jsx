@@ -1,7 +1,7 @@
 import React from "react";
 import "./Hotel.css";
 
-export default function Hotel() {
+export default function Hotel({place}) {
   return (
     <div>
       <div className="row1">
@@ -22,7 +22,7 @@ export default function Hotel() {
           <i class="bi bi-emoji-sunglasses"></i>
         </p>
         <p className="p2">
-          Varad is a Superhost <br />
+          {place.name} is a Superhost <br />
           <span id="p2">Superhosts are experienced, highly rated Hosts.</span>
         </p>
       </div>

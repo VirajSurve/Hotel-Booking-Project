@@ -63,5 +63,6 @@ function ShowMore({ close }) {
     </>
   );
 }
+}
 
 export default ShowMore;

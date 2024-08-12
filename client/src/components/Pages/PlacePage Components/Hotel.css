@@ -30,3 +30,13 @@
   font-weight: 500;
   font-size: 17px;
 }
+
+@media (max-width:768px){
+  .p1,
+  .p2,
+  .p3 {
+    font-weight: 500;
+    font-size: small;
+    padding-right: 1rem;
+  }
+}

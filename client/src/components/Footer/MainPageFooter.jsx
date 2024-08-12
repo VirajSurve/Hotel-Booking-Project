@@ -15,7 +15,7 @@ function MainPageFooter() {
 
   return (
     <div>
-      <div className="footer-container ">
+      <div className="md:footer-container hidden">
         <hr />
         <div className="i mt-3">
           <div className="i1">

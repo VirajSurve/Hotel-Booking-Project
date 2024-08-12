@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SecondPage.css";
 import Title from "./PlacePage Components/Title.jsx";
@@ -17,8 +17,9 @@ export default function SecondPage() {
   const [place, setPlace] = useState(null);
   const [showAllPhotos, setAllPhotos] = useState(false);
   const [transfer, setTransfer] = useState(false);
-
   const [display, setDisplay] = useState(false);
+  const windowWidth = useRef(window.innerWidth);
+  const [isSmallScreen, setIsSmallScreen] = useState(windowWidth.current <= 768);
 
   useEffect(() => {
     if (id) {
@@ -30,7 +31,8 @@ export default function SecondPage() {
   if (!place) return "";
   return (
     <>
-      <Header3 />
+    <div className="secondpage-main">
+    <Header3 />
       <div className="mt-5">
         <div className="parent-container">
           <Title place={place} />
@@ -39,12 +41,14 @@ export default function SecondPage() {
             showAllPhotos={showAllPhotos}
             setAllPhotos={setAllPhotos}
           />
-          <Information place={place} />
+          <Information place={place}/>
+          {!isSmallScreen && <>
           <Mapp place={place} />
-          {/* <Reviews place={place} /> */}
+          <Reviews place={place} />
+          </>}
+          
         </div>
       </div>
-      <MainPageFooter />
       {display && (
         <Imagesmore
           place={place}
@@ -52,6 +56,8 @@ export default function SecondPage() {
           setAllPhotos={setAllPhotos}
         />
       )}
+    </div>
+      
     </>
   );
 }
