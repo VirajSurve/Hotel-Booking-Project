@@ -28,6 +28,7 @@ export default function SecondPage() {
       });
     }
   }, [id]);
+
   if (!place) return "";
   return (
     <>
