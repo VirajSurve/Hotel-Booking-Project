@@ -1,22 +1,21 @@
-import React, { useContext, useState } from "react";
-import "./Header3.css";
-import Nav2 from "../Nav2";
-import header3searchicon from "./search-4-svgrepo-com.svg";
-function Header3()
-{
-    return(
-       
-        <div classname="head2cont z-999">
-        <div className="header3search fixed z-999">
-                <img  className ="header3icon" src={header3searchicon} />
-                <input  className="inputholder2" type="text" placeholder="Where to?" />
+import "./Header4.css";
+
+export default function Header3(){
+    return <>
+        <div className="show-more-content flex justify-between pl-2 pr-2 pt-2 pb-2 font-medium z-50">
+        <div className="cir" onClick={close}>
+          <i className="bi bi-chevron-left"></i>
         </div>
-        <div className="patta"></div>
-        <div className="fixed z-100">
-        <Nav2 />
+        <div className="flex gap-7 panel ">
+          <button className="share">
+            <i className="bi bi-upload mr-1 "></i>
+            <span className="S">Share</span>
+          </button>
+          <button className="mr-14 save" id="btnh">
+            <i className="bi bi-heart mr-1 "></i>
+            <span className="S">Save</span>
+          </button>
         </div>
-        </div>
-        
-    );
+      </div>
+    </>
 }
-export default Header3;

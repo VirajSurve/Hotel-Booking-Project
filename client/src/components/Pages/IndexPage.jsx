@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Button from "../Button.jsx";
 import "../../App.css";
 import { Link, useParams } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import "./IndexPage.css";
-import Header from "../Header/Header.jsx";
+// import Header from "../Header/Header.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
   const { category } = useParams();
+  const windowWidth = useRef(window.innerWidth);
+  const [isSmallScreen, setIsSmallScreen] = useState(windowWidth.current <= 768);
 
   useEffect(() => {
     if (category) {
@@ -32,7 +34,7 @@ function IndexPage() {
 
   return (
     <div className="m-0 p-0">
-      <Header />
+      {/* <Header /> */}
       <div className="app-container">
         <CartProvider>
           <div className="each-card">
@@ -71,7 +73,7 @@ function IndexPage() {
           </div>
         </CartProvider>
       </div>
-      {windowWidth > 800 ? <MainPageFooter /> : <MobileFooter />}
+      {/* {windowWidth > 800 ? <MainPageFooter /> : <MobileFooter />} */}
     </div>
   );
 }
