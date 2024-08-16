@@ -7,6 +7,7 @@ import { CartProvider } from "react-use-cart";
 import "./IndexPage.css";
 // import Header from "../Header/Header.jsx";
 import MainPageFooter from "../Footer/MainPageFooter.jsx";
+import Header1 from "../Header/Header1.jsx";
 
 function IndexPage() {
   const [places, setPlaces] = useState([]);
@@ -34,7 +35,7 @@ function IndexPage() {
 
   return (
     <div className="m-0 p-0">
-      {/* <Header /> */}
+      <Header1 />
       <div className="app-container">
         <CartProvider>
           <div className="each-card">
