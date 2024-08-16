@@ -36,6 +36,7 @@ function IndexPage() {
   return (
     <div className="m-0 p-0">
       <Header1 />
+      {/* varad bhai */}
       <div className="app-container">
         <CartProvider>
           <div className="each-card">
